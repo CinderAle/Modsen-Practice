@@ -15,4 +15,4 @@ function repeatOperation(operation, interval, times) {
     }, interval);
 }
 
-repeatOperation(()=>{console.log("Lambda function")}, 1000, 4);
+repeatOperation(()=>{console.log("Lambda function")}, 400, 4);
