@@ -1,7 +1,7 @@
 function increase(array) {
     for(let i = 0; i < array.length; i++) {
         if(typeof array[i] === "number") {
-            array[i] = array[i] * 1.1;
+            array[i] = (array[i] * 11) / 10;
         }
     }
 }
