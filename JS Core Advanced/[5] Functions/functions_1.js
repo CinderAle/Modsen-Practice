@@ -1,4 +1,4 @@
-console.log("Task #5");
+setTimeout(() => {console.log("Task #5")}, 0);
 
 function repeatOperation(operation, interval, times) {
     if(typeof operation !== "function" || times < 1 || interval < 0) {
