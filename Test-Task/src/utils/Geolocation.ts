@@ -11,6 +11,8 @@ export const getLocation = () : Promise<{lat: number, lng: number}> => {
                 resolve({lat, lng});
             }, () => {
             reject(defaultCenter);
+            }, {
+                enableHighAccuracy: true
             })
         }
         else {

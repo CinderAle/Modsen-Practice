@@ -1,10 +1,12 @@
 import { Box } from "@mui/material";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import { defaultCenter, getLocation } from "../../utils/Geolocation.ts";
 import Loader from "../Loader";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const DEFAULT_ZOOM = 17;
+const MARKER_ICON = "/marker.svg";
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
@@ -28,7 +30,7 @@ const Map = () => {
     <Box position={"absolute"} left={0} top={0} width={"100%"} height={"100%"}>
       <GoogleMap
         center={coordinates}
-        zoom={17}
+        zoom={DEFAULT_ZOOM}
         mapContainerStyle={{ width: "100%", height: "100%" }}
         options={{
           streetViewControl: false,
@@ -37,7 +39,12 @@ const Map = () => {
           zoomControl: false,
         }}
       >
-        <Marker position={coordinates} />
+        <MarkerF
+          position={coordinates}
+          icon={{
+            url: MARKER_ICON,
+          }}
+        />
       </GoogleMap>
     </Box>
   );
