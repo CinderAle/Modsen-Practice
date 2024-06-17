@@ -3,6 +3,9 @@ export const defaultCenter : {lat: number, lng: number} = {
     lng: 27.548468084246515
 };
 
+const GEOLOCATION_TIMEOUT = 5000;
+const HIGHT_ACCURACY_NEEDED = true;
+
 export const getLocation = () : Promise<{lat: number, lng: number}> => {
     return new Promise((resolve, reject) => {
         if("geolocation" in navigator) {
@@ -12,7 +15,8 @@ export const getLocation = () : Promise<{lat: number, lng: number}> => {
             }, () => {
             reject(defaultCenter);
             }, {
-                enableHighAccuracy: true
+                timeout: GEOLOCATION_TIMEOUT,
+                enableHighAccuracy: HIGHT_ACCURACY_NEEDED
             })
         }
         else {

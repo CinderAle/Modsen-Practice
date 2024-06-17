@@ -1,12 +1,26 @@
-import { Box } from "@mui/material";
-import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
+import { Box, rgbToHex } from "@mui/material";
+import {
+  CircleF,
+  GoogleMap,
+  MarkerF,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import { defaultCenter, getLocation } from "../../utils/Geolocation.ts";
 import Loader from "../Loader";
+import styles from "./styles.json";
+import { getNearbyPlaces } from "../../utils/GetPlaces.ts";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+//const MAP_STYLES = require("./styles.json");
 const DEFAULT_ZOOM = 17;
 const MARKER_ICON = "/marker.svg";
+const TEST_RADIUS = 200;
+const MARKER_CIRCLE_RADIUS = 50;
+const CIRCLE_RGB_COLOR = "rgb(94,123,199)";
+const CIRCLE_STROKE_WIDTH = 2;
+const MARKER_CIRCLE_OPACITY = 0.2;
+const CIRCLE_OPACITY = 0.1;
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
@@ -14,15 +28,25 @@ const Map = () => {
     googleMapsApiKey: API_KEY,
   });
   const [coordinates, setCoordinates] = useState(defaultCenter);
+  const [places, setPlaces] = useState<google.maps.places.PlaceResult[] | null>(
+    null
+  );
+
   useEffect(() => {
     getLocation()
       .then((currentCoordinates) => {
         setCoordinates(currentCoordinates);
+        getNearbyPlaces(currentCoordinates, TEST_RADIUS).then((response) => {
+          setPlaces(response);
+        });
       })
       .catch((location) => {
         setCoordinates(location);
-      });
+      })
+      .finally(() => {});
   }, []);
+  console.log(places);
+  if (places != null) [console.log(places[3].adr_address)];
   if (!isLoaded) {
     return <Loader />;
   }
@@ -37,12 +61,35 @@ const Map = () => {
           mapTypeControl: false,
           fullscreenControl: false,
           zoomControl: false,
+          styles: styles,
         }}
       >
         <MarkerF
           position={coordinates}
           icon={{
             url: MARKER_ICON,
+            scaledSize: new google.maps.Size(30, 30),
+            anchor: new google.maps.Point(15, 15),
+          }}
+        />
+        <CircleF
+          radius={TEST_RADIUS}
+          center={coordinates}
+          options={{
+            strokeColor: rgbToHex(CIRCLE_RGB_COLOR),
+            fillColor: rgbToHex(CIRCLE_RGB_COLOR),
+            strokePosition: google.maps.StrokePosition.INSIDE,
+            strokeWeight: CIRCLE_STROKE_WIDTH,
+            fillOpacity: CIRCLE_OPACITY,
+          }}
+        />
+        <CircleF
+          radius={MARKER_CIRCLE_RADIUS}
+          center={coordinates}
+          options={{
+            strokeWeight: 0,
+            fillColor: rgbToHex(CIRCLE_RGB_COLOR),
+            fillOpacity: MARKER_CIRCLE_OPACITY,
           }}
         />
       </GoogleMap>
@@ -51,3 +98,28 @@ const Map = () => {
 };
 
 export default Map;
+
+// /* Ellipse 2 */
+
+// position: absolute;
+// width: 98px;
+// height: 98px;
+// left: calc(50% - 98px/2 - 14px);
+// top: calc(50% - 98px/2 + 5px);
+
+// background: rgba(94, 123, 199, 0.2);
+
+/*
+
+box-sizing: border-box;
+
+position: absolute;
+width: 900px;
+height: 900px;
+left: calc(50% - 900px/2 - 14px);
+top: calc(50% - 900px/2 + 5px);
+
+background: rgba(94, 123, 199, 0.1);
+border: 3px dashed rgba(94, 123, 199, 0.2);
+
+*/
