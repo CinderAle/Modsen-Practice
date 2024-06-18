@@ -3,7 +3,7 @@ export const defaultCenter : {lat: number, lng: number} = {
     lng: 27.548468084246515
 };
 
-const GEOLOCATION_TIMEOUT = 5000;
+const GEOLOCATION_TIMEOUT = 15000;
 const HIGHT_ACCURACY_NEEDED = true;
 
 export const getLocation = () : Promise<{lat: number, lng: number}> => {

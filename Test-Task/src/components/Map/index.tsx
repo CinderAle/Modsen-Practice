@@ -15,8 +15,8 @@ const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 //const MAP_STYLES = require("./styles.json");
 const DEFAULT_ZOOM = 17;
 const MARKER_ICON = "/marker.svg";
-const TEST_RADIUS = 200;
-const MARKER_CIRCLE_RADIUS = 50;
+const TEST_RADIUS = 100;
+const MARKER_CIRCLE_RADIUS = 10;
 const CIRCLE_RGB_COLOR = "rgb(94,123,199)";
 const CIRCLE_STROKE_WIDTH = 2;
 const MARKER_CIRCLE_OPACITY = 0.2;
@@ -27,26 +27,27 @@ const Map = () => {
     id: "google-map-script",
     googleMapsApiKey: API_KEY,
   });
+
   const [coordinates, setCoordinates] = useState(defaultCenter);
-  const [places, setPlaces] = useState<google.maps.places.PlaceResult[] | null>(
-    null
-  );
+  const [places, setPlaces] = useState<google.maps.places.PlaceResult[]>([]);
 
   useEffect(() => {
+    let coords: { lat: number; lng: number };
     getLocation()
       .then((currentCoordinates) => {
-        setCoordinates(currentCoordinates);
-        getNearbyPlaces(currentCoordinates, TEST_RADIUS).then((response) => {
-          setPlaces(response);
-        });
+        coords = currentCoordinates;
       })
       .catch((location) => {
-        setCoordinates(location);
+        coords = location;
       })
-      .finally(() => {});
+      .finally(() => {
+        getNearbyPlaces(coords, TEST_RADIUS).then((response) => {
+          setPlaces([...(response ?? [])]);
+        });
+        setCoordinates(coords);
+      });
   }, []);
-  console.log(places);
-  if (places != null) [console.log(places[3].adr_address)];
+  console.log(places.length);
   if (!isLoaded) {
     return <Loader />;
   }
@@ -72,6 +73,24 @@ const Map = () => {
             anchor: new google.maps.Point(15, 15),
           }}
         />
+        {places.map((place, id) => {
+          if (
+            place.geometry != undefined &&
+            place.geometry.location != undefined
+          ) {
+            return (
+              <MarkerF
+                key={id}
+                position={place.geometry.location}
+                icon={{
+                  url: "/places/car.svg",
+                  scaledSize: new google.maps.Size(30, 30),
+                  anchor: new google.maps.Point(15, 15),
+                }}
+              />
+            );
+          }
+        })}
         <CircleF
           radius={TEST_RADIUS}
           center={coordinates}
