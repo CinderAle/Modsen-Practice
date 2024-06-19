@@ -13,7 +13,7 @@ import { getNearbyPlaces } from "../../utils/GetPlaces.ts";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 //const MAP_STYLES = require("./styles.json");
-const DEFAULT_ZOOM = 17;
+const DEFAULT_ZOOM = 18;
 const MARKER_ICON = "/marker.svg";
 const TEST_RADIUS = 100;
 const MARKER_CIRCLE_RADIUS = 10;
@@ -63,6 +63,8 @@ const Map = () => {
           fullscreenControl: false,
           zoomControl: false,
           styles: styles,
+          minZoom: 17,
+          maxZoom: 20,
         }}
       >
         <MarkerF

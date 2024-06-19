@@ -1,11 +1,14 @@
 import Map from "../../components/Map";
 import Sidebar from "../../components/Sidebar";
+import Controls from "../../components/Controls";
 
 const MainPage = () => {
   return (
     <>
       <Map />
-      <Sidebar />
+      <Controls>
+        <Sidebar />
+      </Controls>
     </>
   );
 };

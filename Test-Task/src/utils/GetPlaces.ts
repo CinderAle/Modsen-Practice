@@ -1,6 +1,3 @@
-// const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-// const PLACES_API_URI = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-
 export const getNearbyPlaces = async (position: {lng: number, lat: number}, radius: number) => {
     let places: google.maps.places.PlaceResult[] = [];
     await google.maps.importLibrary("places");
