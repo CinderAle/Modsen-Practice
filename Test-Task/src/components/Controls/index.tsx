@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
@@ -7,9 +7,17 @@ interface Props {
 
 const index = ({ children }: Props) => {
   return (
-    <Box position={"absolute"} left={0} height={"100%"} zIndex={1}>
+    <Grid
+      container
+      wrap={"nowrap"}
+      width={"auto"}
+      position={"absolute"}
+      left={0}
+      height={"100%"}
+      zIndex={1}
+    >
       {children}
-    </Box>
+    </Grid>
   );
 };
 

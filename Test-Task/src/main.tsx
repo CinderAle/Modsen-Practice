@@ -1,6 +1,10 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import persistStore from "redux-persist/es/persistStore";
+import { store } from "./store/index.ts";
 
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
@@ -18,4 +22,12 @@ import "./index.css";
 // const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+const persisitor = persistStore(store);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <Provider store={store}>
+    <PersistGate persistor={persisitor}>
+      <App />
+    </PersistGate>
+  </Provider>
+);
