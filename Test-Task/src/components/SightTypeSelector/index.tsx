@@ -1,46 +1,27 @@
-import {
-  Box,
-  Checkbox,
-  FormControlLabel,
-  Icon,
-  Typography,
-} from "@mui/material";
 import { SightTypes } from "../../types/SightTypes";
+import StyledSelectorHeader from "./StyledSelectorHeader";
+import StyledTypeSelectorBox from "./StyledTypeSelectorBox";
+import StyledTypeSelectorCheckbox from "./StyledTypeSelectorCheckbox";
 
 const SightTypeSelector = () => {
   return (
     <>
-      <Typography variant="h3">Искать</Typography>
-      <Box
-        paddingTop={2}
-        paddingX={2}
-        width={"100%"}
-        height={"490px"}
-        border={"2px solid #C4C4C4"}
-        sx={{ overflow: "hidden", overflowY: "scroll" }}
-      >
+      <StyledSelectorHeader>Искать</StyledSelectorHeader>
+      <StyledTypeSelectorBox>
         {Object.values(SightTypes)
           .filter((e) => isNaN(Number(e)))
           .map((e) => (
-            <FormControlLabel
-              sx={{ width: "100%" }}
-              control={
-                <Checkbox
-                  sx={{ width: "60px", height: "60px" }}
-                  icon={
-                    <Icon>
-                      <img
-                        width={"100%"}
-                        src={`/places/${e.toString().toLowerCase()}.svg`}
-                      />
-                    </Icon>
-                  }
-                />
-              }
-              label={e.toString()}
+            <StyledTypeSelectorCheckbox
+              onSelect={() => {
+                console.log(`${e} added`);
+              }}
+              onRemove={() => {
+                console.log(`${e} removed`);
+              }}
+              iconName={e.toString()}
             />
           ))}
-      </Box>
+      </StyledTypeSelectorBox>
     </>
   );
 };
