@@ -1,7 +1,10 @@
 import { Sight } from "./Sight";
 
 export enum SectionType {
-    Bookmark="BOOKMARK", Filter="FILTER", Info="INFO", None="NONE"
+    Bookmark = "BOOKMARK",
+    Filter = "FILTER",
+    Info = "INFO",
+    None = "NONE",
 }
 
 interface ShowFilter {

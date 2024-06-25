@@ -6,6 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import persistStore from "redux-persist/es/persistStore";
 import { store } from "./store/index.ts";
 
+// For future connection
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 
@@ -25,9 +26,9 @@ import { store } from "./store/index.ts";
 const persisitor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Provider store={store}>
-    <PersistGate persistor={persisitor}>
-      <App />
-    </PersistGate>
-  </Provider>
+    <Provider store={store}>
+        <PersistGate persistor={persisitor}>
+            <App />
+        </PersistGate>
+    </Provider>,
 );

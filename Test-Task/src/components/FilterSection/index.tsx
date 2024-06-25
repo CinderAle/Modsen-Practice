@@ -3,12 +3,12 @@ import SightTypeSelector from "../SightTypeSelector";
 import SearchRadiusSelector from "../SearchRadiusSelector";
 
 const FilterSection = () => {
-  return (
-    <Grid>
-      <SightTypeSelector />
-      <SearchRadiusSelector />
-    </Grid>
-  );
+    return (
+        <Grid>
+            <SightTypeSelector />
+            <SearchRadiusSelector />
+        </Grid>
+    );
 };
 
 export default FilterSection;

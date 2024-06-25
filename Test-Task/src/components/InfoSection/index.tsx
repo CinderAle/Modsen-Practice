@@ -1,11 +1,11 @@
 import { Sight } from "@/types/Sight";
 
 interface Props {
-  info: Sight;
+    info: Sight;
 }
 
-const index = ({ info }: Props) => {
-  return <div>{info.address}</div>;
+const InfoSection = ({ info }: Props) => {
+    return <div>{info.address}</div>;
 };
 
-export default index;
+export default InfoSection;

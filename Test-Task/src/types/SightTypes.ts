@@ -16,5 +16,5 @@ export enum SightTypes {
     Religion,
     Shop,
     Sleep,
-    Sport
+    Sport,
 }
