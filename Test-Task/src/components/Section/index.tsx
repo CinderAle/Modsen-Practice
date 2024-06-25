@@ -5,16 +5,16 @@ import StyledSectionContentBox from "./StyledSectionContentBox";
 import StyledHideSectionButton from "./StyledHideSectionButton";
 
 interface Props {
-  children?: ReactNode;
+    children?: ReactNode;
 }
-const index = ({ children }: Props) => {
-  const { hideSection } = useAction();
-  return (
-    <StyledSectionContainer>
-      <StyledSectionContentBox>{children}</StyledSectionContentBox>
-      <StyledHideSectionButton hideSection={hideSection} />
-    </StyledSectionContainer>
-  );
+const Section = ({ children }: Props) => {
+    const { hideSection } = useAction();
+    return (
+        <StyledSectionContainer>
+            <StyledSectionContentBox>{children}</StyledSectionContentBox>
+            <StyledHideSectionButton hideSection={hideSection} />
+        </StyledSectionContainer>
+    );
 };
 
-export default index;
+export default Section;

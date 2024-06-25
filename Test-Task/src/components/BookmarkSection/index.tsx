@@ -1,5 +1,5 @@
-const index = () => {
-  return <div>Bookmark</div>;
+const BookmarkSection = () => {
+    return <div>Bookmark</div>;
 };
 
-export default index;
+export default BookmarkSection;

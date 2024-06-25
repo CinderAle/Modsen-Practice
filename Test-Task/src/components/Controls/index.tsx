@@ -2,23 +2,23 @@ import { Grid } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
-  children: ReactNode;
+    children: ReactNode;
 }
 
-const index = ({ children }: Props) => {
-  return (
-    <Grid
-      container
-      wrap={"nowrap"}
-      width={"auto"}
-      position={"absolute"}
-      left={0}
-      height={"100%"}
-      zIndex={1}
-    >
-      {children}
-    </Grid>
-  );
+const Controls = ({ children }: Props) => {
+    return (
+        <Grid
+            container
+            wrap={"nowrap"}
+            width={"auto"}
+            position={"absolute"}
+            left={0}
+            height={"100%"}
+            zIndex={1}
+        >
+            {children}
+        </Grid>
+    );
 };
 
-export default index;
+export default Controls;

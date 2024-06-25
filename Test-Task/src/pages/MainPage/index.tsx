@@ -11,29 +11,29 @@ import BookmarkSection from "@/components/BookmarkSection";
 import InfoSection from "@/components/InfoSection";
 
 const sections = new Map<SectionType, ReactNode>([
-  [SectionType.Filter, <FilterSection />],
-  [SectionType.Bookmark, <BookmarkSection />],
+    [SectionType.Filter, <FilterSection />],
+    [SectionType.Bookmark, <BookmarkSection />],
 ]);
 
 const MainPage = () => {
-  const { type, info } = useTypedSelector((state) => state.section);
-  return (
-    <>
-      <GMap />
-      <Controls>
-        <Sidebar />
-        {type === SectionType.None || type === SectionType.Info || (
-          <Section>{sections.get(type)}</Section>
-        )}
-        {type === SectionType.Info && (
-          <Section>
-            <InfoSection info={info} />
-          </Section>
-        )}
-      </Controls>
-      <MapControls />
-    </>
-  );
+    const { type, info } = useTypedSelector((state) => state.section);
+    return (
+        <>
+            <GMap />
+            <Controls>
+                <Sidebar />
+                {type === SectionType.None || type === SectionType.Info || (
+                    <Section>{sections.get(type)}</Section>
+                )}
+                {type === SectionType.Info && (
+                    <Section>
+                        <InfoSection info={info} />
+                    </Section>
+                )}
+            </Controls>
+            <MapControls />
+        </>
+    );
 };
 
 export default MainPage;
