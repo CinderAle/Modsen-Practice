@@ -6,9 +6,9 @@ import { getNearbyPlaces } from "../../utils/getPlaces.ts";
 import { useTypedSelector } from "@/hooks/useTypedSelector.ts";
 import StyledMap from "./StyledMap.tsx";
 import StyledSelfMarker from "./StyledSelfMarker.tsx";
-import StyledPlaceMarker from "./StyledPlaceMarker.tsx";
 import StyledSearchCircle from "./StyledSearchCircle.tsx";
 import StyledSmallerCircle from "./StyledSmallerCircle.tsx";
+import PlaceMarker from "../PlaceMarker/index.tsx";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const TEST_RADIUS = 100;
@@ -52,12 +52,7 @@ const Map = () => {
                     place.geometry != undefined &&
                     place.geometry.location != undefined
                 ) {
-                    return (
-                        <StyledPlaceMarker
-                            key={id}
-                            coordinates={place.geometry.location}
-                        />
-                    );
+                    return <PlaceMarker key={id} place={place} />;
                 }
             })}
             <StyledSearchCircle center={coordinates} radius={TEST_RADIUS} />
