@@ -11,7 +11,7 @@ import StyledSmallerCircle from "./StyledSmallerCircle.tsx";
 import PlaceMarker from "../PlaceMarker/index.tsx";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-const TEST_RADIUS = 100;
+const TEST_RADIUS = 700;
 
 const Map = () => {
     const { isLoaded } = useJsApiLoader({
@@ -20,6 +20,7 @@ const Map = () => {
     });
 
     const [coordinates, setCoordinates] = useState(defaultCenter);
+    const filters = useTypedSelector((state) => state.filter.filters);
     const zoom = useTypedSelector((state) => state.zoom.value);
     const [places, setPlaces] = useState<google.maps.places.PlaceResult[]>([]);
 
@@ -33,12 +34,14 @@ const Map = () => {
                 coords = location;
             })
             .finally(() => {
-                getNearbyPlaces(coords, TEST_RADIUS).then((response) => {
-                    setPlaces([...(response ?? [])]);
-                });
+                getNearbyPlaces(coords, TEST_RADIUS, filters).then(
+                    (response) => {
+                        setPlaces([...(response ?? [])]);
+                    },
+                );
                 setCoordinates(coords);
             });
-    }, []);
+    }, [filters]);
 
     if (!isLoaded) {
         return <Loader />;

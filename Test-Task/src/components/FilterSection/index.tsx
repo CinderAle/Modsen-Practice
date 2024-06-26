@@ -7,7 +7,6 @@ import StyledSubmitButton from "./StyledSubmitButton";
 import { FormEvent } from "react";
 
 const FilterSection = () => {
-    //localStorage.removeItem("persist:root");
     const filtersArray = useTypedSelector((state) => state.filter.filters);
     const filters = new Set(filtersArray);
     const { setFilters } = useAction();
