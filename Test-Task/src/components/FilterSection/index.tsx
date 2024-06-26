@@ -1,13 +1,50 @@
-import { Grid } from "@mui/material";
 import SightTypeSelector from "../SightTypeSelector";
 import SearchRadiusSelector from "../SearchRadiusSelector";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { SightTypes } from "@/types/SightTypes";
+import { useAction } from "@/hooks/useAction";
+import StyledSubmitButton from "./StyledSubmitButton";
+import { FormEvent, useState } from "react";
 
 const FilterSection = () => {
+    const filtersArray = useTypedSelector((state) => state.filter.filters);
+    const radius = useTypedSelector((state) => state.filter.radius);
+    const s = useTypedSelector((state) => state.filter);
+    const filters = new Set(filtersArray);
+    const { setFilters, setRadius } = useAction();
+    const [radiusState, setRadiusState] = useState(radius);
+    console.log(s);
+
+    const submitForm = (e: FormEvent) => {
+        e.preventDefault();
+        setFilters(filters);
+        setRadius(radiusState);
+    };
+
+    const addFilter = (filter: SightTypes) => {
+        filters.add(filter);
+    };
+
+    const removeFilter = (filter: SightTypes) => {
+        filters.delete(filter);
+    };
+
+    const changeRadius = (value: string) => {
+        if (!isNaN(Number(value))) {
+            setRadiusState(Number(value));
+        }
+    };
+
     return (
-        <Grid>
-            <SightTypeSelector />
-            <SearchRadiusSelector />
-        </Grid>
+        <form onSubmit={submitForm}>
+            <SightTypeSelector
+                filters={filters}
+                addFilter={addFilter}
+                removeFilter={removeFilter}
+            />
+            <SearchRadiusSelector value={radiusState} onChange={changeRadius} />
+            <StyledSubmitButton />
+        </form>
     );
 };
 
