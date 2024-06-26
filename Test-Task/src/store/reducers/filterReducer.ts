@@ -1,19 +1,8 @@
-import { SightTypes } from "@/types/SightTypes";
-
-interface FilterState {
-    filters: SightTypes[];
-}
-
-export enum FilterActionType {
-    Set = "SET",
-}
-
-export interface FilterAction {
-    type: FilterActionType;
-    payload: Set<SightTypes>;
-}
+import { constants } from "@/constants/constants";
+import { FilterAction, FilterActionType, FilterState } from "@/types/Filter";
 
 const initialState: FilterState = {
+    radius: constants.DEFAULT_RADIUS,
     filters: [],
 };
 
@@ -22,8 +11,15 @@ export const filterReducer = (
     action: FilterAction,
 ): FilterState => {
     switch (action.type) {
-        case FilterActionType.Set:
-            return { filters: [...action.payload] };
+        case FilterActionType.SetFilters:
+            return { ...state, filters: [...action.payload] };
+        case FilterActionType.SetRadius:
+            return { ...state, radius: action.payload };
+        case FilterActionType.SetAll:
+            return {
+                radius: action.payload.radius,
+                filters: [...action.payload.filters],
+            };
         default:
             return state;
     }
