@@ -6,19 +6,23 @@ import { useAction } from "@/hooks/useAction";
 import StyledSubmitButton from "./StyledSubmitButton";
 import { FormEvent, useState } from "react";
 
+const METERS_IN_KILOMETER = 1000;
+
 const FilterSection = () => {
     const filtersArray = useTypedSelector((state) => state.filter.filters);
     const radius = useTypedSelector((state) => state.filter.radius);
     const s = useTypedSelector((state) => state.filter);
     const filters = new Set(filtersArray);
     const { setFilters, setRadius } = useAction();
-    const [radiusState, setRadiusState] = useState(radius);
+    const [radiusState, setRadiusState] = useState(
+        radius / METERS_IN_KILOMETER,
+    );
     console.log(s);
 
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
         setFilters(filters);
-        setRadius(radiusState);
+        setRadius(radiusState * METERS_IN_KILOMETER);
     };
 
     const addFilter = (filter: SightTypes) => {
