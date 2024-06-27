@@ -1,8 +1,8 @@
 import { useJsApiLoader } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
-import { defaultCenter, getLocation } from "../../utils/geolocation.ts";
+import { defaultCenter, getLocation } from "@/utils/geolocation.ts";
 import Loader from "../Loader";
-import { getNearbyPlaces } from "../../utils/getPlaces.ts";
+import { getNearbyPlaces } from "@/utils/getPlaces.ts";
 import { useTypedSelector } from "@/hooks/useTypedSelector.ts";
 import StyledMap from "./StyledMap.tsx";
 import StyledSelfMarker from "./StyledSelfMarker.tsx";
@@ -11,7 +11,6 @@ import StyledSmallerCircle from "./StyledSmallerCircle.tsx";
 import PlaceMarker from "../PlaceMarker/index.tsx";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-const TEST_RADIUS = 700;
 
 const Map = () => {
     const { isLoaded } = useJsApiLoader({
@@ -22,6 +21,7 @@ const Map = () => {
     const [coordinates, setCoordinates] = useState(defaultCenter);
     const filters = useTypedSelector((state) => state.filter.filters);
     const zoom = useTypedSelector((state) => state.zoom.value);
+    const radius = useTypedSelector((state) => state.filter.radius);
     const [places, setPlaces] = useState<google.maps.places.PlaceResult[]>([]);
 
     useEffect(() => {
@@ -34,14 +34,12 @@ const Map = () => {
                 coords = location;
             })
             .finally(() => {
-                getNearbyPlaces(coords, TEST_RADIUS, filters).then(
-                    (response) => {
-                        setPlaces([...(response ?? [])]);
-                    },
-                );
+                getNearbyPlaces(coords, radius, filters).then((response) => {
+                    setPlaces([...(response ?? [])]);
+                });
                 setCoordinates(coords);
             });
-    }, [filters]);
+    }, [filters, radius]);
 
     if (!isLoaded) {
         return <Loader />;
@@ -58,7 +56,7 @@ const Map = () => {
                     return <PlaceMarker key={id} place={place} />;
                 }
             })}
-            <StyledSearchCircle center={coordinates} radius={TEST_RADIUS} />
+            <StyledSearchCircle center={coordinates} radius={radius} />
             <StyledSmallerCircle center={coordinates} />
         </StyledMap>
     );

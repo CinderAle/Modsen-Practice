@@ -16,6 +16,7 @@ const makePromiseArrayForFilters = (
                 service.nearbySearch(
                     {
                         location: position,
+                        language: "ru",
                         radius: radius,
                         type: type,
                     },

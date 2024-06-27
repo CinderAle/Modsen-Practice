@@ -2,6 +2,8 @@ import { useTypedSelector } from "@/hooks/useTypedSelector";
 import StyledPlaceMarker from "./StyledPlaceMarker";
 import getSightTypeFromAllTypes from "@/utils/getSightTypeFromAllTypes";
 import { SightTypes } from "@/types/SightTypes";
+import { useAction } from "@/hooks/useAction";
+import { Sight } from "@/types/Sight";
 
 interface Props {
     place: google.maps.places.PlaceResult;
@@ -9,9 +11,17 @@ interface Props {
 
 const PlaceMarker = ({ place }: Props) => {
     const filters = useTypedSelector((state) => state.filter.filters);
+    const { showSightInfo } = useAction();
 
     const showPlaceInfo = () => {
-        console.log(place.types);
+        showSightInfo(
+            new Sight(
+                place.place_id,
+                place.name,
+                place.photos !== undefined ? place.photos[0].getUrl() : "",
+                place.types,
+            ),
+        );
     };
 
     const icon: string =
