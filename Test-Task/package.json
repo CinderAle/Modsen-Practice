@@ -17,6 +17,7 @@
     "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.2.5",
     "@types/react-redux": "^7.1.33",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "axios": "^1.7.2",
     "firebase": "^10.12.2",
     "google-maps-react-markers": "^2.0.10",
