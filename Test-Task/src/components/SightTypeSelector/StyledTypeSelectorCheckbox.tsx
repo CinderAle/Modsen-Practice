@@ -1,15 +1,16 @@
+import { SightTypes } from "@/types/SightTypes";
 import { Checkbox, FormControlLabel, Icon } from "@mui/material";
 import { useState } from "react";
 
 interface Props {
-    iconName: string;
-    onSelect: () => void;
-    onRemove: () => void;
+    value: SightTypes;
+    onSelect: (value: SightTypes) => void;
+    onRemove: (value: SightTypes) => void;
     isChecked?: boolean;
 }
 
 const StyledTypeSelectorCheckbox = ({
-    iconName,
+    value,
     onSelect,
     onRemove,
     isChecked = false,
@@ -19,9 +20,9 @@ const StyledTypeSelectorCheckbox = ({
     const changeCombobox = () => {
         setCheckedState(!checkedState);
         if (checkedState) {
-            onRemove();
+            onRemove(value);
         } else {
-            onSelect();
+            onSelect(value);
         }
     };
 
@@ -37,15 +38,15 @@ const StyledTypeSelectorCheckbox = ({
                         <Icon>
                             <img
                                 width={"100%"}
-                                src={`/places/${iconName
-                                    .toString()
-                                    .toLowerCase()}.svg`}
+                                src={`/places/${SightTypes[
+                                    value
+                                ].toLowerCase()}.svg`}
                             />
                         </Icon>
                     }
                 />
             }
-            label={iconName}
+            label={SightTypes[value]}
         />
     );
 };
