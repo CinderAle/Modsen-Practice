@@ -20,6 +20,7 @@ const PlaceMarker = ({ place }: Props) => {
                 place.name,
                 place.photos !== undefined ? place.photos[0].getUrl() : "",
                 place.types,
+                place.geometry?.location,
             ),
         );
     };

@@ -1,3 +1,4 @@
+import { useAction } from "@/hooks/useAction";
 import { Sight } from "@/types/Sight";
 import { SightTypes } from "@/types/SightTypes";
 import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
@@ -14,6 +15,13 @@ const InfoSection = ({ info }: Props) => {
                   SightTypes[type].toLowerCase(),
               )
             : [];
+
+    const { setRouteEnd } = useAction();
+
+    const setCoordinatesForRoute = () => {
+        setRouteEnd(info.coordinates);
+    };
+
     return (
         <Box sx={{ overflow: "hidden" }}>
             <img width="100%" height={"300px"} src={info.photo} />
@@ -31,7 +39,7 @@ const InfoSection = ({ info }: Props) => {
             </Typography>
             <Grid container width={"100%"} justifyContent={"space-between"}>
                 <Button>Сохранить</Button>
-                <Button>Маршрут</Button>
+                <Button onClick={setCoordinatesForRoute}>Маршрут</Button>
             </Grid>
         </Box>
     );
