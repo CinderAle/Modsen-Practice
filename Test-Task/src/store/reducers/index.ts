@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import { sectionReducer } from "./sectionReducer";
-import { zoomReducer } from "./zoomReducer";
+
 import { filterReducer } from "./filterReducer";
 import { routeReducer } from "./routeReducer";
+import { sectionReducer } from "./sectionReducer";
+import { zoomReducer } from "./zoomReducer";
 
 export const rootReducer = combineReducers({
     section: sectionReducer,

@@ -1,5 +1,5 @@
 import placesConstants from "@/constants/placesConstants";
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 
 export default (types: string[], filters: SightTypes[]): SightTypes => {
     for (let i = 0; i < types.length; i++) {

@@ -1,15 +1,16 @@
-import { useAction } from "@/hooks/useAction";
-import { Sight } from "@/types/Sight";
-import { SightTypes } from "@/types/SightTypes";
-import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
 import { Box, Button, Grid, Icon, Typography } from "@mui/material";
+
+import { useAction } from "@/hooks/useAction";
+import { Sight } from "@/types/sight";
+import { SightTypes } from "@/types/sightTypes";
+import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
 
 interface Props {
     info: Sight;
 }
 
 const InfoSection = ({ info }: Props) => {
-    let icons =
+    const icons =
         info.types !== undefined
             ? getAllSightTypesFromAllTypes(info.types).map((type) =>
                   SightTypes[type].toLowerCase(),

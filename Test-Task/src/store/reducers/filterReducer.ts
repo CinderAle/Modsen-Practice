@@ -1,5 +1,5 @@
 import { constants } from "@/constants/constants";
-import { FilterAction, FilterActionType, FilterState } from "@/types/Filter";
+import { FilterAction, FilterActionType, FilterState } from "@/types/filter";
 
 const initialState: FilterState = {
     radius: constants.DEFAULT_RADIUS,

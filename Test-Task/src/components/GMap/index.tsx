@@ -1,18 +1,20 @@
 import { useJsApiLoader } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
-import { defaultCenter, getLocation } from "@/utils/geolocation.ts";
-import Loader from "../Loader";
-import { getNearbyPlaces } from "@/utils/getPlaces.ts";
-import { useTypedSelector } from "@/hooks/useTypedSelector.ts";
-import StyledMap from "./StyledMap.tsx";
-import StyledSelfMarker from "./StyledSelfMarker.tsx";
-import StyledSearchCircle from "./StyledSearchCircle.tsx";
-import StyledSmallerCircle from "./StyledSmallerCircle.tsx";
-import PlaceMarker from "../PlaceMarker/index.tsx";
-import MapDirections from "../MapDirections/index.tsx";
 import { APIProvider } from "@vis.gl/react-google-maps";
+import { useEffect, useState } from "react";
+
 import { useAction } from "@/hooks/useAction.ts";
+import { useTypedSelector } from "@/hooks/useTypedSelector.ts";
 import { Route } from "@/types/route.ts";
+import { defaultCenter, getLocation } from "@/utils/geolocation.ts";
+import { getNearbyPlaces } from "@/utils/getPlaces.ts";
+
+import Loader from "../Loader";
+import MapDirections from "../MapDirections/index.tsx";
+import PlaceMarker from "../PlaceMarker/index.tsx";
+import StyledMap from "./StyledMap.tsx";
+import StyledSearchCircle from "./StyledSearchCircle.tsx";
+import StyledSelfMarker from "./StyledSelfMarker.tsx";
+import StyledSmallerCircle from "./StyledSmallerCircle.tsx";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 

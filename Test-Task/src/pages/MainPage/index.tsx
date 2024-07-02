@@ -1,16 +1,17 @@
-import GMap from "@/components/GMap";
-import Sidebar from "@/components/Sidebar";
-import Controls from "@/components/Controls";
-import Section from "@/components/Section";
-import MapControls from "@/components/MapControls";
-import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { SectionType } from "@/types/Section";
 import { ReactNode } from "react";
-import FilterSection from "@/components/FilterSection";
+
 import BookmarkSection from "@/components/BookmarkSection";
+import Controls from "@/components/Controls";
+import FilterSection from "@/components/FilterSection";
+import GMap from "@/components/GMap";
 import InfoSection from "@/components/InfoSection";
+import MapControls from "@/components/MapControls";
 import RouteInfoSection from "@/components/RouteInfoSection";
-import { Sight } from "@/types/Sight";
+import Section from "@/components/Section";
+import Sidebar from "@/components/Sidebar";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { SectionType } from "@/types/section";
+import { Sight } from "@/types/sight";
 
 const sections = new Map<SectionType, ReactNode>([
     [SectionType.Filter, <FilterSection />],

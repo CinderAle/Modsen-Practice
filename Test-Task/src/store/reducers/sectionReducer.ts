@@ -1,6 +1,7 @@
-import { SectionAction, SectionState, SectionType } from "@/types/Section";
-import { Sight } from "@/types/Sight";
 import { AnyAction } from "redux";
+
+import { SectionAction, SectionState, SectionType } from "@/types/section";
+import { Sight } from "@/types/sight";
 
 const initialState = {
     type: SectionType.Bookmark,
