@@ -1,7 +1,8 @@
 import { useAction } from "@/hooks/useAction";
-import StyledSidebarGrid from "./StyledSidebarGrid";
+
 import MappieIcon from "./MappieIcon";
 import SidebarControls from "./StyledSidebarControls";
+import StyledSidebarGrid from "./StyledSidebarGrid";
 
 const login = () => {
     console.log("login");

@@ -1,4 +1,5 @@
 import { SightTypes } from "@/types/sightTypes";
+
 import getFilterTypes from "./getFilterTypes";
 
 const makePromiseArrayForFilters = (
@@ -7,7 +8,7 @@ const makePromiseArrayForFilters = (
     filters: SightTypes[],
     service: google.maps.places.PlacesService,
 ): Promise<google.maps.places.PlaceResult[]>[] => {
-    let filterTypes = getFilterTypes(filters);
+    const filterTypes = getFilterTypes(filters);
     return filterTypes.reduce(
         (promises: Promise<google.maps.places.PlaceResult[]>[], type) => [
             ...promises,
@@ -58,8 +59,8 @@ export const getNearbyPlaces = async (
         (placesArray) =>
             new Promise<google.maps.places.PlaceResult[]>((resolve) => {
                 if (placesArray != null) {
-                    let idSet = new Set<string>();
-                    let allPlaces = placesArray.reduce(
+                    const idSet = new Set<string>();
+                    const allPlaces = placesArray.reduce(
                         (
                             array: google.maps.places.PlaceResult[],
                             places: google.maps.places.PlaceResult[],

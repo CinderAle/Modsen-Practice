@@ -1,4 +1,5 @@
 import { Icon } from "@mui/material";
+
 import Logo from "@/assets/svg/logo.svg";
 
 const MappieIcon = () => {

@@ -1,10 +1,11 @@
-import { useAction } from "@/hooks/useAction";
-import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { SectionType } from "@/types/section";
 import { rgbToHex } from "@mui/material";
 import { useGoogleMap } from "@react-google-maps/api";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
+
+import { useAction } from "@/hooks/useAction";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { SectionType } from "@/types/section";
 
 const ROUTES_LIBRARY = "routes";
 
@@ -56,8 +57,8 @@ const MapDirections = () => {
                 travelMode: google.maps.TravelMode.WALKING,
             })
             .then((response) => {
-                let distance = response.routes[0].legs[0].distance?.value ?? 0;
-                let time = response.routes[0].legs[0].duration?.value ?? 0;
+                const distance = response.routes[0].legs[0].distance?.value ?? 0;
+                const time = response.routes[0].legs[0].duration?.value ?? 0;
                 showRouteInfo(distance, time);
                 directionsRenderer.setDirections(response);
             });

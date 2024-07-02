@@ -1,5 +1,5 @@
-import { Sight } from "./sight";
 import { RouteInfo } from "./route";
+import { Sight } from "./sight";
 
 export enum SectionType {
     Bookmark = "BOOKMARK",

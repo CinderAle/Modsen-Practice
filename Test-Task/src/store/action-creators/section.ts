@@ -1,6 +1,7 @@
+import { Dispatch } from "redux";
+
 import { SectionAction, SectionType } from "@/types/section";
 import { Sight } from "@/types/sight";
-import { Dispatch } from "redux";
 
 const commonDispatch = (
     section: SectionType.Bookmark | SectionType.Filter | SectionType.None,

@@ -17,4 +17,11 @@ module.exports = {
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
     },
+    parserOptions: {
+        sourceType: "module",
+        ecmaVersion: "latest",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+    },
 };

@@ -1,8 +1,10 @@
-import { useAction } from "@/hooks/useAction";
 import { ReactNode } from "react";
+
+import { useAction } from "@/hooks/useAction";
+
+import StyledHideSectionButton from "./StyledHideSectionButton";
 import StyledSectionContainer from "./StyledSectionContainer";
 import StyledSectionContentBox from "./StyledSectionContentBox";
-import StyledHideSectionButton from "./StyledHideSectionButton";
 
 interface Props {
     children?: ReactNode;

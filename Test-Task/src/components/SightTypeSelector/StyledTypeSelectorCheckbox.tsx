@@ -1,6 +1,7 @@
-import { SightTypes } from "@/types/sightTypes";
 import { Checkbox, FormControlLabel, Icon } from "@mui/material";
 import { useState } from "react";
+
+import { SightTypes } from "@/types/sightTypes";
 
 interface Props {
     value: SightTypes;

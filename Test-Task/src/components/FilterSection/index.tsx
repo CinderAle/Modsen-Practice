@@ -1,10 +1,12 @@
-import SightTypeSelector from "../SightTypeSelector";
-import SearchRadiusSelector from "../SearchRadiusSelector";
+import { FormEvent, useState } from "react";
+
+import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { SightTypes } from "@/types/sightTypes";
-import { useAction } from "@/hooks/useAction";
+
+import SearchRadiusSelector from "../SearchRadiusSelector";
+import SightTypeSelector from "../SightTypeSelector";
 import StyledSubmitButton from "./StyledSubmitButton";
-import { FormEvent, useState } from "react";
 
 const METERS_IN_KILOMETER = 1000;
 
