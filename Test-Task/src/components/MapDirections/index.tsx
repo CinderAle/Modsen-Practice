@@ -1,6 +1,6 @@
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { SectionType } from "@/types/Section";
+import { SectionType } from "@/types/section";
 import { rgbToHex } from "@mui/material";
 import { useGoogleMap } from "@react-google-maps/api";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";

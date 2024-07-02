@@ -1,4 +1,4 @@
-import { SightTypes } from "./SightTypes";
+import { SightTypes } from "./sightTypes";
 
 export interface FilterState {
     filters: SightTypes[];

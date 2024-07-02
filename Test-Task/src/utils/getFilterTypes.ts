@@ -1,4 +1,4 @@
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 import places from "@/constants/placesConstants";
 
 export default (filters: SightTypes[]): string[] => {

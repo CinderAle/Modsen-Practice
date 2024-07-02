@@ -4,13 +4,13 @@ import Controls from "@/components/Controls";
 import Section from "@/components/Section";
 import MapControls from "@/components/MapControls";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { SectionType } from "@/types/Section";
+import { SectionType } from "@/types/section";
 import { ReactNode } from "react";
 import FilterSection from "@/components/FilterSection";
 import BookmarkSection from "@/components/BookmarkSection";
 import InfoSection from "@/components/InfoSection";
 import RouteInfoSection from "@/components/RouteInfoSection";
-import { Sight } from "@/types/Sight";
+import { Sight } from "@/types/sight";
 
 const sections = new Map<SectionType, ReactNode>([
     [SectionType.Filter, <FilterSection />],

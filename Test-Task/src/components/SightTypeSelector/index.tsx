@@ -1,4 +1,4 @@
-import { SightTypes } from "../../types/SightTypes";
+import { SightTypes } from "../../types/sightTypes";
 import StyledSelectorHeader from "./StyledSelectorHeader";
 import StyledTypeSelectorBox from "./StyledTypeSelectorBox";
 import StyledTypeSelectorCheckbox from "./StyledTypeSelectorCheckbox";

@@ -1,4 +1,4 @@
-import { Sight } from "./Sight";
+import { Sight } from "./sight";
 import { RouteInfo } from "./route";
 
 export enum SectionType {

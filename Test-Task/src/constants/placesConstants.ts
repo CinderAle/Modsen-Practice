@@ -1,4 +1,4 @@
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 
 export default new Map<SightTypes, Set<string>>([
     [SightTypes.Architecture, new Set(["city_hall", "tourist_attraction"])],

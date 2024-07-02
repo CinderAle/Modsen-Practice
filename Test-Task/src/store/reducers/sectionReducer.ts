@@ -1,5 +1,5 @@
-import { SectionAction, SectionState, SectionType } from "@/types/Section";
-import { Sight } from "@/types/Sight";
+import { SectionAction, SectionState, SectionType } from "@/types/section";
+import { Sight } from "@/types/sight";
 import { AnyAction } from "redux";
 
 const initialState = {

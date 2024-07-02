@@ -1,9 +1,9 @@
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import StyledPlaceMarker from "./StyledPlaceMarker";
 import getSightTypeFromAllTypes from "@/utils/getSightTypeFromAllTypes";
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 import { useAction } from "@/hooks/useAction";
-import { Sight } from "@/types/Sight";
+import { Sight } from "@/types/sight";
 
 interface Props {
     place: google.maps.places.PlaceResult;

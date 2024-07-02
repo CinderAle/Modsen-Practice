@@ -1,4 +1,4 @@
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 import getFilterTypes from "./getFilterTypes";
 
 const makePromiseArrayForFilters = (

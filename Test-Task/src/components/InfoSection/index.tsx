@@ -1,6 +1,6 @@
 import { useAction } from "@/hooks/useAction";
-import { Sight } from "@/types/Sight";
-import { SightTypes } from "@/types/SightTypes";
+import { Sight } from "@/types/sight";
+import { SightTypes } from "@/types/sightTypes";
 import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
 import { Box, Button, Grid, Icon, Typography } from "@mui/material";
 

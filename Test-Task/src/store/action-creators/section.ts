@@ -1,5 +1,5 @@
-import { SectionAction, SectionType } from "@/types/Section";
-import { Sight } from "@/types/Sight";
+import { SectionAction, SectionType } from "@/types/section";
+import { Sight } from "@/types/sight";
 import { Dispatch } from "redux";
 
 const commonDispatch = (

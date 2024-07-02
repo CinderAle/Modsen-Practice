@@ -1,7 +1,7 @@
 import SightTypeSelector from "../SightTypeSelector";
 import SearchRadiusSelector from "../SearchRadiusSelector";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { SightTypes } from "@/types/SightTypes";
+import { SightTypes } from "@/types/sightTypes";
 import { useAction } from "@/hooks/useAction";
 import StyledSubmitButton from "./StyledSubmitButton";
 import { FormEvent, useState } from "react";
