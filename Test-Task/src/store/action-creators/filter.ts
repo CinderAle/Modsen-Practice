@@ -1,6 +1,7 @@
 import { Dispatch } from "redux";
-import { SightTypes } from "@/types/SightTypes";
-import { Filter, FilterAction, FilterActionType } from "@/types/Filter";
+
+import { Filter, FilterAction, FilterActionType } from "@/types/filter";
+import { SightTypes } from "@/types/sightTypes";
 
 export const setFilters = (filters: Set<SightTypes>) => {
     return (dispatch: Dispatch<FilterAction>) => {

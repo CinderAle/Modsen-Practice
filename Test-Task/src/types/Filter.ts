@@ -1,9 +1,9 @@
-import { SightTypes } from "./SightTypes";
+import { SightTypes } from "./sightTypes";
 
-export interface FilterState {
+export type FilterState = {
     filters: SightTypes[];
     radius: number;
-}
+};
 
 export enum FilterActionType {
     SetFilters = "SET_FILTERS",
@@ -11,20 +11,20 @@ export enum FilterActionType {
     SetAll = "SET_ALL",
 }
 
-interface SetFilters {
+type SetFilters = {
     type: FilterActionType.SetFilters;
     payload: Set<SightTypes>;
-}
+};
 
-interface SetFilterRadius {
+type SetFilterRadius = {
     type: FilterActionType.SetRadius;
     payload: number;
-}
+};
 
-interface SetAllFilters {
+type SetAllFilters = {
     type: FilterActionType.SetAll;
     payload: Filter;
-}
+};
 
 export type FilterAction = SetAllFilters | SetFilterRadius | SetFilters;
 

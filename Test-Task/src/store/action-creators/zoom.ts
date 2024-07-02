@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+
 import { ZoomAction, ZoomActionType } from "../reducers/zoomReducer";
 
 export const zoomIn = () => {

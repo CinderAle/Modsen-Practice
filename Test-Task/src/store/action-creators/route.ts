@@ -1,6 +1,7 @@
-import { Route, RouteAction, RouteActionsTypes } from "@/types/route";
 import { LatLng, LatLngLiteral } from "google-maps-react-markers";
 import { Dispatch } from "redux";
+
+import { Route, RouteAction, RouteActionsTypes } from "@/types/route";
 
 const commonDispatch = (action: RouteAction) => {
     return (dispatch: Dispatch<RouteAction>) => {

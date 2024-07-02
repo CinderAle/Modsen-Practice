@@ -1,9 +1,11 @@
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
 import "./index.css";
+
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
 import persistStore from "redux-persist/es/persistStore";
+import { PersistGate } from "redux-persist/integration/react";
+
+import App from "./App.tsx";
 import { store } from "./store/index.ts";
 
 // For future connection

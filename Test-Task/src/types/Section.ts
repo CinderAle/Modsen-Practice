@@ -1,5 +1,5 @@
-import { Sight } from "./Sight";
 import { RouteInfo } from "./route";
+import { Sight } from "./sight";
 
 export enum SectionType {
     Bookmark = "BOOKMARK",
@@ -9,30 +9,30 @@ export enum SectionType {
     Route = "ROUTE",
 }
 
-interface ShowFilter {
+type ShowFilter = {
     type: SectionType.Filter;
-}
+};
 
-interface ShowBookmark {
+type ShowBookmark = {
     type: SectionType.Bookmark;
-}
+};
 
-interface ShowInfo {
+type ShowInfo = {
     type: SectionType.Info;
     payload: Sight;
-}
+};
 
-interface ShowRouteInfo {
+type ShowRouteInfo = {
     type: SectionType.Route;
     payload: {
         distance: number;
         time: number;
     };
-}
+};
 
-interface HideSection {
+type HideSection = {
     type: SectionType.None;
-}
+};
 
 export type SectionAction =
     | ShowFilter
@@ -41,8 +41,8 @@ export type SectionAction =
     | HideSection
     | ShowRouteInfo;
 
-export interface SectionState {
+export type SectionState = {
     type: SectionType;
     loading: boolean;
     info: Sight | RouteInfo;
-}
+};
