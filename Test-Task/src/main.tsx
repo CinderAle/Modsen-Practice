@@ -8,29 +8,30 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.tsx";
 import { store } from "./store/index.ts";
 
-// For future connection
-//import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase/compat/app";
+import { createContext } from "react";
 
-// const firebaseConfig = {
-//   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-//   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-//   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-//   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-//   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_CENTER_ID,
-//   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-//   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
-// };
+firebase.initializeApp({
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_CENTER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+});
+const firestore = firebase.firestore();
 
-// const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+export const StoreContext = createContext({ firebase, firestore });
 
 const persisitor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
         <PersistGate persistor={persisitor}>
-            <App />
+            <StoreContext.Provider value={{ firebase, firestore }}>
+                <App />
+            </StoreContext.Provider>
         </PersistGate>
     </Provider>,
 );
