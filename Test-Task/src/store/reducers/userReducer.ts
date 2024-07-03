@@ -10,12 +10,14 @@ export const userReducer = (
     action: UserAction,
 ): UserState => {
     switch (action.type) {
-        case UserActionType.REGISTER:
-            return { user: action.payload, loading: false };
         case UserActionType.LOGIN:
-            return { user: action.payload, loading: false };
+            return {
+                user: { ...action.payload, isLoggedIn: true },
+                loading: false,
+            };
         case UserActionType.LOGOUT:
             return initialState;
+        case UserActionType.REGISTER:
         case UserActionType.LOADING:
         default:
             return state;
