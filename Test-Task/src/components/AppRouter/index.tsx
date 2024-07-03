@@ -4,7 +4,7 @@ import { publicRoutes } from "@/routes";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const AppRouter = () => {
-    const isLoggedIn = true;
+    const isLoggedIn = false;
     return (
         <Routes>
             {!isLoggedIn ? (
