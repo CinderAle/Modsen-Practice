@@ -7,8 +7,7 @@ import { SightTypes } from "@/types/sightTypes";
 import SearchRadiusSelector from "../SearchRadiusSelector";
 import SightTypeSelector from "../SightTypeSelector";
 import StyledSubmitButton from "./StyledSubmitButton";
-
-const METERS_IN_KILOMETER = 1000;
+import { constants } from "@/constants/constants";
 
 const FilterSection = () => {
     const filtersArray = useTypedSelector((state) => state.filter.filters);
@@ -17,14 +16,14 @@ const FilterSection = () => {
     const filters = new Set(filtersArray);
     const { setFilters, setRadius } = useAction();
     const [radiusState, setRadiusState] = useState(
-        radius / METERS_IN_KILOMETER,
+        radius / constants.METERS_IN_KILOMETER,
     );
     console.log(s);
 
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
         setFilters(filters);
-        setRadius(radiusState * METERS_IN_KILOMETER);
+        setRadius(radiusState * constants.METERS_IN_KILOMETER);
     };
 
     const addFilter = (filter: SightTypes) => {

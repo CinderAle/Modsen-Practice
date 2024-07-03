@@ -17,12 +17,20 @@ const BookmarkItem = ({ place }: Props) => {
     };
 
     const show = () => {
-        showSightInfo(place);
+        showSightInfo(
+            new Sight(
+                place.id,
+                place.title,
+                place.photo,
+                place.types,
+                place.coordinates,
+            ),
+        );
     };
 
     return (
         <Grid container>
-            <img src={place.photo} />
+            <img width="100px" src={place.photo} />
             <Typography variant="h6">{place.title}</Typography>
             <Button onClick={remove}>Remove</Button>
             <Button onClick={show}>Open</Button>

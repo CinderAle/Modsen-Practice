@@ -10,6 +10,7 @@ export enum UserActionType {
     LOGIN = "LOGIN",
     LOGOUT = "LOGOUT",
     LOADING = "LOADING",
+    SET_BOOKMARKS = "SET_BOOKMARKS",
 }
 
 type UserRegister = {
@@ -30,7 +31,17 @@ type UserLoading = {
     type: UserActionType.LOADING;
 };
 
-export type UserAction = UserRegister | UserLogin | UserLogout | UserLoading;
+type UserSetBookmarks = {
+    type: UserActionType.SET_BOOKMARKS;
+    payload: Sight[];
+};
+
+export type UserAction =
+    | UserRegister
+    | UserLogin
+    | UserLogout
+    | UserLoading
+    | UserSetBookmarks;
 
 export class User {
     login: string;
