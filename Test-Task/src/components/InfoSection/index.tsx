@@ -4,6 +4,10 @@ import { useAction } from "@/hooks/useAction";
 import { Sight } from "@/types/sight";
 import { SightTypes } from "@/types/sightTypes";
 import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { addBookmark } from "@/utils/addBookmark";
+import { removeBookmark } from "@/utils/removeBookmark";
+import { getBookmarks } from "@/utils/getBookmarks";
 
 interface Props {
     info: Sight;
@@ -17,10 +21,34 @@ const InfoSection = ({ info }: Props) => {
               )
             : [];
 
-    const { setRouteEnd } = useAction();
+    const { setRouteEnd, setUserBookmarks } = useAction();
+    const userLogin = useTypedSelector((state) => state.user.user.login);
+    const bookmarks = useTypedSelector((state) => state.user.user.bookmarks);
+
+    const isInBookmarks = (place: Sight): boolean => {
+        return (
+            bookmarks.filter((bookmark) => bookmark.id === place.id).length > 0
+        );
+    };
 
     const setCoordinatesForRoute = () => {
         setRouteEnd(info.coordinates);
+    };
+
+    const updateUserBookmarks = () => {
+        getBookmarks(userLogin).then((newBookmarks) => {
+            setUserBookmarks(newBookmarks);
+        });
+    };
+
+    const removeFromBookmarks = () => {
+        removeBookmark(userLogin, info);
+        updateUserBookmarks();
+    };
+
+    const saveToBookmarks = () => {
+        addBookmark(userLogin, info);
+        updateUserBookmarks();
     };
 
     return (
@@ -39,7 +67,11 @@ const InfoSection = ({ info }: Props) => {
                 consectetur error? Eos, reiciendis delectus?
             </Typography>
             <Grid container width={"100%"} justifyContent={"space-between"}>
-                <Button>Сохранить</Button>
+                {isInBookmarks(info) ? (
+                    <Button onClick={removeFromBookmarks}>В закладках</Button>
+                ) : (
+                    <Button onClick={saveToBookmarks}>Сохранить</Button>
+                )}
                 <Button onClick={setCoordinatesForRoute}>Маршрут</Button>
             </Grid>
         </Box>

@@ -15,15 +15,22 @@ const PlaceMarker = ({ place }: Props) => {
     const { showSightInfo } = useAction();
 
     const showPlaceInfo = () => {
-        showSightInfo(
-            new Sight(
-                place.place_id,
-                place.name,
-                place.photos !== undefined ? place.photos[0].getUrl() : "",
-                place.types,
-                place.geometry?.location,
-            ),
-        );
+        if (
+            place.geometry !== undefined &&
+            place.geometry.location !== undefined
+        )
+            showSightInfo(
+                new Sight(
+                    place.place_id,
+                    place.name,
+                    place.photos !== undefined ? place.photos[0].getUrl() : "",
+                    place.types,
+                    {
+                        lat: place.geometry.location.lat(),
+                        lng: place.geometry.location.lng(),
+                    },
+                ),
+            );
     };
 
     const icon: string =

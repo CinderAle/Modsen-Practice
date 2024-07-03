@@ -15,6 +15,11 @@ export const userReducer = (
                 user: { ...action.payload, isLoggedIn: true },
                 loading: false,
             };
+        case UserActionType.SET_BOOKMARKS:
+            return {
+                user: { ...state.user, bookmarks: action.payload },
+                loading: false,
+            };
         case UserActionType.LOGOUT:
             return initialState;
         case UserActionType.REGISTER:
