@@ -10,9 +10,10 @@ export const removeBookmark = async (login: string, sight: Sight) => {
     );
     const snapshot = await get(bookmarkRef);
     if (snapshot.exists()) {
-        let bookmarks = Object.values(
+        let bookmarks: Sight[] = Object.values(
             Object.values(snapshot.val())[0] as object,
-        )[0] as Array<Sight>;
+        ) as Array<Sight>;
+        console.log(bookmarks);
         bookmarks = bookmarks.filter((bookmark) => bookmark.id !== sight.id);
         set(bookmarkRef, { bookmarks: bookmarks });
         return true;

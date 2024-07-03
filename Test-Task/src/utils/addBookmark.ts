@@ -17,15 +17,16 @@ export const addBookmark = async (login: string, sight: Sight) => {
                 `${constants.USER_COLLECTION}/${login}/${constants.BOOKMARK_COLLECTION}`,
             ),
         );
-        bookmarks = { bookmarks: [sight] };
+        bookmarks = { bookmarks: sight };
     } else {
         let bookmarksSet = new Set(
             Object.values(
                 Object.values(snapshot.val())[0] as object,
-            )[0] as Array<Sight>,
+            ) as Array<Sight>,
         );
         bookmarksSet.add(sight);
-        bookmarks = { bookmarks: { ...bookmarksSet } };
+        console.log(bookmarksSet);
+        bookmarks = { bookmarks: [...bookmarksSet] };
     }
     set(bookmarkRef, bookmarks);
 };

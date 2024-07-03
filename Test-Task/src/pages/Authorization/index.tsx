@@ -1,5 +1,6 @@
 import { useAction } from "@/hooks/useAction";
 import { User } from "@/types/user";
+import { getBookmarks } from "@/utils/getBookmarks";
 import { loginUser } from "@/utils/login";
 import { Button, TextField } from "@mui/material";
 import { FormEvent, useState } from "react";
@@ -13,7 +14,9 @@ const Authorization = () => {
         e.preventDefault();
         loginUser(loginValue, password).then((result) => {
             if (result) {
-                login(new User(loginValue));
+                getBookmarks(loginValue).then((bookmarks) =>
+                    login(new User(loginValue, true, bookmarks)),
+                );
             }
         });
     };
