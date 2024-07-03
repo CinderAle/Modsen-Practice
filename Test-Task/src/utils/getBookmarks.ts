@@ -12,7 +12,7 @@ export const getBookmarks = async (login: string) => {
     if (snapshot.exists()) {
         return Object.values(
             Object.values(snapshot.val())[0] as object,
-        )[0] as Array<Sight>;
+        ) as Array<Sight>;
     } else {
         return [];
     }
