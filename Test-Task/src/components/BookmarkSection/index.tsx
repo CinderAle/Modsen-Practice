@@ -1,10 +1,11 @@
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import BookmarkItem from "../BookmarkItem";
-import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Sight } from "@/types/sight";
 import { getBookmarks } from "@/utils/getBookmarks";
 import { useAction } from "@/hooks/useAction";
+import { Caption } from "./styles/caption";
+import { BookmarksContainer } from "./styles/container";
 
 const BookmarkSection = () => {
     const userLogin = useTypedSelector((state) => state.user.user.login);
@@ -20,13 +21,14 @@ const BookmarkSection = () => {
     });
 
     return isLoggedIn ? (
-        <>
+        <BookmarksContainer>
+            <Caption>Избранное:</Caption>
             {bookmarks.map((bookmark) => (
                 <BookmarkItem key={bookmark.id} place={bookmark} />
             ))}
-        </>
+        </BookmarksContainer>
     ) : (
-        <Typography variant="h4">Log in to see</Typography>
+        <Caption>Войдите в аккаунт, чтобы увидеть</Caption>
     );
 };
 

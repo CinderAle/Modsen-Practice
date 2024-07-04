@@ -11,5 +11,6 @@ export const STYLES = {
     UNCHECKED_COLOR: "#C4C4C4",
     CHECKED_COLOR: "#333",
     HEADING_FONT_SIZE: "font-size: 24px",
+    HEADING_FONT_SIZE_VALUE: "24px",
     TRANSITION_VALUE: "250ms cubic-bezier(0.4, 0, 0.2, 1)",
 };

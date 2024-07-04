@@ -15,6 +15,8 @@ import {
     BookmarkRemoveButton,
     RouteButton,
     RouteIcon,
+    ShowBookmarksButton,
+    ShowBookmarksIcon,
 } from "./styles/buttons";
 
 interface Props {
@@ -29,7 +31,7 @@ const InfoSection = ({ info }: Props) => {
               )
             : [];
 
-    const { setRouteEnd, setUserBookmarks } = useAction();
+    const { setRouteEnd, setUserBookmarks, showBookmark } = useAction();
     const userLogin = useTypedSelector((state) => state.user.user.login);
     const bookmarks = useTypedSelector((state) => state.user.user.bookmarks);
 
@@ -60,35 +62,41 @@ const InfoSection = ({ info }: Props) => {
     };
 
     return (
-        <InfoContainer>
-            <SightImage src={info.photo} />
-            {icons.map((icon) => (
-                <TypeIcon src={`/places/${icon}.svg`} />
-            ))}
-            <SightName>{info.title}</SightName>
-            <SightDescription>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                iusto, reprehenderit commodi libero nostrum voluptatum quas
-                voluptatibus possimus qui odit.
-            </SightDescription>
-            <ButtonsContainer>
-                {isInBookmarks(info) ? (
-                    <BookmarkRemoveButton onClick={removeFromBookmarks}>
-                        <BookmarkIcon />
-                        Сохранено
-                    </BookmarkRemoveButton>
-                ) : (
-                    <BookmarkAddButton onClick={saveToBookmarks}>
-                        <BookmarkIcon />
-                        Сохранить
-                    </BookmarkAddButton>
-                )}
-                <RouteButton onClick={setCoordinatesForRoute}>
-                    <RouteIcon />
-                    Маршрут
-                </RouteButton>
-            </ButtonsContainer>
-        </InfoContainer>
+        <div>
+            <ShowBookmarksButton onClick={showBookmark}>
+                <ShowBookmarksIcon />
+                Избранное
+            </ShowBookmarksButton>
+            <InfoContainer>
+                <SightImage src={info.photo} />
+                {icons.map((icon) => (
+                    <TypeIcon src={`/places/${icon}.svg`} />
+                ))}
+                <SightName>{info.title}</SightName>
+                <SightDescription>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Impedit iusto, reprehenderit commodi libero nostrum
+                    voluptatum quas voluptatibus possimus qui odit.
+                </SightDescription>
+                <ButtonsContainer>
+                    {isInBookmarks(info) ? (
+                        <BookmarkRemoveButton onClick={removeFromBookmarks}>
+                            <BookmarkIcon />
+                            Сохранено
+                        </BookmarkRemoveButton>
+                    ) : (
+                        <BookmarkAddButton onClick={saveToBookmarks}>
+                            <BookmarkIcon />
+                            Сохранить
+                        </BookmarkAddButton>
+                    )}
+                    <RouteButton onClick={setCoordinatesForRoute}>
+                        <RouteIcon />
+                        Маршрут
+                    </RouteButton>
+                </ButtonsContainer>
+            </InfoContainer>
+        </div>
     );
 };
 

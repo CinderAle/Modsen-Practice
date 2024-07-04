@@ -1,5 +1,9 @@
 import { STYLES } from "@/constants/styleConstants";
-import { BookmarkRounded, FmdGoodRounded } from "@mui/icons-material";
+import {
+    ArrowLeftRounded,
+    BookmarkRounded,
+    FmdGoodRounded,
+} from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 
 const getCommonButtonStyle = (fillColor: string) => ({
@@ -22,6 +26,16 @@ export const BookmarkAddButton = styled(Button)(() => ({
     textTransform: "unset",
 }));
 
+export const ShowBookmarksButton = styled(Button)(() => ({
+    ...getCommonButtonStyle(STYLES.WHITE_COLOR),
+    color: STYLES.CHECKED_COLOR,
+    padding: 0,
+    margin: "10px 0 0",
+    textTransform: "unset",
+    fontWeight: "bold",
+    fontSize: STYLES.HEADING_FONT_SIZE_VALUE,
+}));
+
 export const BookmarkRemoveButton = styled(Button)(() => ({
     ...getCommonButtonStyle(STYLES.WHITE_COLOR),
     borderWidth: STYLES.DEFAULT_BORDER_WIDTH,
@@ -38,6 +52,11 @@ export const RouteButton = styled(Button)(() => ({
 
 export const BookmarkIcon = styled(BookmarkRounded)(() => ({
     fontSize: ICON_FONT_SIZE,
+    marginRight: ICON_MARGIN,
+}));
+
+export const ShowBookmarksIcon = styled(ArrowLeftRounded)(() => ({
+    fontSize: "30px",
     marginRight: ICON_MARGIN,
 }));
 

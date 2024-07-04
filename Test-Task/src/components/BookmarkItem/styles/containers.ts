@@ -1,20 +1,25 @@
 import { STYLES } from "@/constants/styleConstants";
 import styled from "styled-components";
 
-export const InfoContainer = styled.div`
-    overflow: hidden;
-    overflow-y: scroll;
+export const ItemContainer = styled.div`
     width: 100%;
-    max-height: 100%;
-    margin-top: 10px;
-    padding: 10px;
     ${STYLES.DEFAULT_BORDER}
     ${STYLES.BORDER_RADIUS}
+    padding: 10px;
+    margin: 20px 0;
+`;
+
+export const ImageNameContainer = styled.div`
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
 `;
 
 export const ButtonsContainer = styled.div`
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    margin-top: 24px;
+    align-items: center;
 `;
