@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { SightTypes } from "@/types/sightTypes";
+
 import {
     CheckedText,
     TypeCheckBox,

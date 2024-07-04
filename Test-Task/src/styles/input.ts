@@ -1,5 +1,6 @@
-import { STYLES } from "@/constants/styleConstants";
 import styled from "styled-components";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const AuthInput = styled.input`
     outline: none;

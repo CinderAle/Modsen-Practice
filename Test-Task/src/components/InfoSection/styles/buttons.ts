@@ -1,10 +1,11 @@
-import { STYLES } from "@/constants/styleConstants";
 import {
     ArrowLeftRounded,
     BookmarkRounded,
     FmdGoodRounded,
 } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 const getCommonButtonStyle = (fillColor: string) => ({
     fontFamily: "Mont",

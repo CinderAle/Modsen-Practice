@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { BookmarkRounded, Login, Search } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 const BUTTON_HEIGHT = "60px";
 

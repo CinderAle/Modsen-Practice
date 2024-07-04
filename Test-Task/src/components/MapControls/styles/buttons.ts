@@ -1,10 +1,11 @@
-import { STYLES } from "@/constants/styleConstants";
 import {
     AddRounded,
     MyLocationRounded,
     RemoveRounded,
 } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 const ICON_FONT_SIZE = 25;
 

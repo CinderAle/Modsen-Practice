@@ -12,11 +12,11 @@ const SECONDS_IN_MINUTE = 60;
 export const secondsToTime = (seconds: number) => {
     let time = "";
     if (seconds > SECONDS_IN_HOUR) {
-        let hours = Math.floor(seconds / SECONDS_IN_HOUR);
+        const hours = Math.floor(seconds / SECONDS_IN_HOUR);
         seconds -= hours * SECONDS_IN_HOUR;
         time += `${hours} ч`;
     }
-    let minutes = Math.ceil(seconds / SECONDS_IN_MINUTE);
+    const minutes = Math.ceil(seconds / SECONDS_IN_MINUTE);
     time += ` ${minutes} мин`;
     return time.trim();
 };

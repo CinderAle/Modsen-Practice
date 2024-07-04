@@ -1,5 +1,5 @@
 import { useAction } from "@/hooks/useAction";
-import { ControlsContainer, ZoomControls } from "./styles/container";
+
 import {
     LocateButton,
     LocateIcon,
@@ -8,6 +8,7 @@ import {
     ZoomOutButton,
     ZoomOutIcon,
 } from "./styles/buttons";
+import { ControlsContainer, ZoomControls } from "./styles/container";
 
 const MapControls = () => {
     const { zoomIn, zoomOut } = useAction();

@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { ArrowLeftRounded } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const HideButton = styled(Button)(() => ({
     minWidth: "45px",

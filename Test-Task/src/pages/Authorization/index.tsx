@@ -1,18 +1,20 @@
-import { constants } from "@/constants/constants";
-import { useAction } from "@/hooks/useAction";
-import { User } from "@/types/user";
-import { loginUser } from "@/utils/login";
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthForm } from "../../styles/form";
-import { AuthInput } from "@/styles/input";
-import { AuthHeading, ErrorParagraph, SuggestParagraph } from "@/styles/text";
+
+import { constants } from "@/constants/constants";
+import { useAction } from "@/hooks/useAction";
 import {
     AuthButton,
     MapLink,
     MapLinkIcon,
     SuggestLink,
 } from "@/styles/buttons";
+import { AuthInput } from "@/styles/input";
+import { AuthHeading, ErrorParagraph, SuggestParagraph } from "@/styles/text";
+import { User } from "@/types/user";
+import { loginUser } from "@/utils/login";
+
+import { AuthForm } from "../../styles/form";
 
 const WRONG_CREDENTIALS_MESSAGE =
     "Не удалось войти в аккаунт! Перепроверьте логин или пароль";

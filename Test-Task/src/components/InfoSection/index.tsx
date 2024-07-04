@@ -1,14 +1,12 @@
 import { useAction } from "@/hooks/useAction";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
 import { SightTypes } from "@/types/sightTypes";
-import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
-import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { addBookmark } from "@/utils/addBookmark";
-import { removeBookmark } from "@/utils/removeBookmark";
+import getAllSightTypesFromAllTypes from "@/utils/getAllSightTypesFromAllTypes";
 import { getBookmarks } from "@/utils/getBookmarks";
-import { ButtonsContainer, InfoContainer } from "./styles/section";
-import { SightImage, TypeIcon } from "./styles/images";
-import { SightDescription, SightName } from "./styles/text";
+import { removeBookmark } from "@/utils/removeBookmark";
+
 import {
     BookmarkAddButton,
     BookmarkIcon,
@@ -18,6 +16,9 @@ import {
     ShowBookmarksButton,
     ShowBookmarksIcon,
 } from "./styles/buttons";
+import { SightImage, TypeIcon } from "./styles/images";
+import { ButtonsContainer, InfoContainer } from "./styles/section";
+import { SightDescription, SightName } from "./styles/text";
 
 interface Props {
     info: Sight;

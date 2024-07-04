@@ -1,4 +1,7 @@
 import { useAction } from "@/hooks/useAction";
+import { metersToKilometers, secondsToTime } from "@/utils/transformMetrics";
+
+import { CancelRouteButton, CancelRouteIcon } from "./styles/button";
 import {
     DistanceContainer,
     RouteDataContainer,
@@ -6,8 +9,6 @@ import {
     TimeContainer,
 } from "./styles/containers";
 import { ValueHeading, ValueLabel } from "./styles/text";
-import { CancelRouteButton, CancelRouteIcon } from "./styles/button";
-import { metersToKilometers, secondsToTime } from "@/utils/transformMetrics";
 
 interface Props {
     distance: number;

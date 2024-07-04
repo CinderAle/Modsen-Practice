@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { CloseRounded } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const CancelRouteButton = styled(Button)(() => ({
     minWidth: 0,

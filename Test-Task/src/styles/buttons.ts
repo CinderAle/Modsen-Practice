@@ -1,7 +1,8 @@
-import { STYLES } from "@/constants/styleConstants";
 import { ArrowLeftRounded } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 import { Link } from "react-router-dom";
+
+import { STYLES } from "@/constants/styleConstants";
 
 const commonButton = (fillColor: string) => ({
     backgroundColor: fillColor,

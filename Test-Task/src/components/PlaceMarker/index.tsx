@@ -1,9 +1,9 @@
+import emptyPhoto from "@/assets/png/empty.png";
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
 import { SightTypes } from "@/types/sightTypes";
 import getSightTypeFromAllTypes from "@/utils/getSightTypeFromAllTypes";
-import emptyPhoto from "@/assets/png/empty.png";
 
 import StyledPlaceMarker from "./StyledPlaceMarker";
 

@@ -1,3 +1,6 @@
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { constants } from "@/constants/constants";
 import {
     MapLink,
@@ -9,8 +12,6 @@ import { AuthForm } from "@/styles/form";
 import { AuthInput } from "@/styles/input";
 import { AuthHeading, ErrorParagraph, SuggestParagraph } from "@/styles/text";
 import { registerUser } from "@/utils/register";
-import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const USER_EXISTS_MESSAGE = "Такой пользователь уже существует!";
 const PASSWORDS_MUST_MATCH_MESSAGE = "Пароли должны совпадать!";

@@ -1,5 +1,6 @@
-import { STYLES } from "@/constants/styleConstants";
 import styled from "styled-components";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const Heading = styled.h1`
     margin: 10px 0;

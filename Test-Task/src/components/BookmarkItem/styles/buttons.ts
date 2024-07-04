@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { ArrowRightRounded, BookmarkRounded } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 const ICON_FONT_SIZE = "26px";
 

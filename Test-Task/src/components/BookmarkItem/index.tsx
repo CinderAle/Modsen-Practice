@@ -2,19 +2,20 @@ import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
 import { removeBookmark } from "@/utils/removeBookmark";
-import {
-    ButtonsContainer,
-    ImageNameContainer,
-    ItemContainer,
-} from "./styles/containers";
-import { ItemName, ItemText } from "./styles/text";
-import { ItemImage } from "./styles/images";
+
 import {
     OpenBookmarkButton,
     OpenBookmarkIcon,
     RemoveBookmarkButton,
     RemoveBookmarkIcon,
 } from "./styles/buttons";
+import {
+    ButtonsContainer,
+    ImageNameContainer,
+    ItemContainer,
+} from "./styles/containers";
+import { ItemImage } from "./styles/images";
+import { ItemName, ItemText } from "./styles/text";
 
 type Props = {
     place: Sight;

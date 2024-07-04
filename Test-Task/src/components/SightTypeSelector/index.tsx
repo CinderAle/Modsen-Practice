@@ -1,7 +1,7 @@
 import { SightTypes } from "../../types/sightTypes";
-import TypeSelectorCheckbox from "./TypeSelectorCheckbox";
 import { FilterBox } from "./styles/box";
 import { Heading } from "./styles/heading";
+import TypeSelectorCheckbox from "./TypeSelectorCheckbox";
 
 interface Props {
     addFilter: (filter: SightTypes) => void;

@@ -1,4 +1,6 @@
+import userIcon from "@/assets/png/user.png";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
+
 import {
     BookmarkButton,
     BookmarkIcon,
@@ -13,7 +15,6 @@ import {
     UserIconContainer,
 } from "./styles/containers";
 import { UserIcon } from "./styles/logo";
-import userIcon from "@/assets/png/user.png";
 
 interface Props {
     showFilters: () => void;

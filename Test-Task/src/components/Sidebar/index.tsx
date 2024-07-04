@@ -1,12 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
+import LogoSvg from "@/assets/svg/logo.svg";
+import { constants } from "@/constants/constants";
 import { useAction } from "@/hooks/useAction";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
 
 import SidebarControls from "./SidebarControls";
-import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { useNavigate } from "react-router-dom";
-import { constants } from "@/constants/constants";
-import LogoSvg from "@/assets/svg/logo.svg";
-import { Logo } from "./styles/logo";
 import { SidebarContainer } from "./styles/containers";
+import { Logo } from "./styles/logo";
 
 const Sidebar = () => {
     const { showBookmark, showFilter } = useAction();

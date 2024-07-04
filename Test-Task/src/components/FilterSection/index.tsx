@@ -1,12 +1,12 @@
 import { FormEvent, useState } from "react";
 
+import { constants } from "@/constants/constants";
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { SightTypes } from "@/types/sightTypes";
 
 import SearchRadiusSelector from "../SearchRadiusSelector";
 import SightTypeSelector from "../SightTypeSelector";
-import { constants } from "@/constants/constants";
 import { SearchIcon, SubmitButton } from "./styles/button";
 import { TypeForm } from "./styles/form";
 

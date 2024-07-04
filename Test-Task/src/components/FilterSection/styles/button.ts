@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { Search } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const SubmitButton = styled(Button)(() => ({
     width: "100%",

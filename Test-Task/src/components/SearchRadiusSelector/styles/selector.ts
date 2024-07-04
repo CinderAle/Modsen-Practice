@@ -1,6 +1,7 @@
-import { STYLES } from "@/constants/styleConstants";
 import { InputProps } from "@mui/material";
 import styled from "styled-components";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const RadiusSelector = styled.input.attrs<InputProps>(() => ({
     type: "number",

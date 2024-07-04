@@ -1,6 +1,7 @@
+import { Dispatch } from "redux";
+
 import { Sight } from "@/types/sight";
 import { User, UserAction, UserActionType } from "@/types/user";
-import { Dispatch } from "redux";
 
 export const register = (user: User) => {
     return (dispatch: Dispatch<UserAction>) => {

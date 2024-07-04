@@ -1,9 +1,11 @@
-import { useTypedSelector } from "@/hooks/useTypedSelector";
-import BookmarkItem from "../BookmarkItem";
 import { useEffect, useState } from "react";
+
+import { useAction } from "@/hooks/useAction";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
 import { getBookmarks } from "@/utils/getBookmarks";
-import { useAction } from "@/hooks/useAction";
+
+import BookmarkItem from "../BookmarkItem";
 import { Caption } from "./styles/caption";
 import { BookmarksContainer } from "./styles/container";
 

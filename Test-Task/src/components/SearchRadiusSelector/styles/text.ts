@@ -1,5 +1,6 @@
-import { STYLES } from "@/constants/styleConstants";
 import styled from "styled-components";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const Header = styled.h3`
     margin: 14px 0;

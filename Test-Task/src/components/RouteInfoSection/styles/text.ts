@@ -1,5 +1,6 @@
-import { STYLES } from "@/constants/styleConstants";
 import styled from "styled-components";
+
+import { STYLES } from "@/constants/styleConstants";
 
 export const ValueHeading = styled.h2`
     ${STYLES.HEADING_FONT_SIZE};
