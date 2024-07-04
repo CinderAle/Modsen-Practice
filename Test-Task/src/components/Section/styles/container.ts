@@ -9,7 +9,7 @@ export const SectionContainer = styled.div`
     width: 420px;
     border-left: 2px solid ${STYLES.UNCHECKED_COLOR};
     background-color: ${STYLES.WHITE_COLOR};
-    padding: 35px;
+    padding: 25px;
 `;
 
 export const AddressInput = styled.input`

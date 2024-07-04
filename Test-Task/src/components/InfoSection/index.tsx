@@ -1,5 +1,3 @@
-import { Box, Button, Grid, Icon, Typography } from "@mui/material";
-
 import { useAction } from "@/hooks/useAction";
 import { Sight } from "@/types/sight";
 import { SightTypes } from "@/types/sightTypes";
@@ -8,6 +6,16 @@ import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { addBookmark } from "@/utils/addBookmark";
 import { removeBookmark } from "@/utils/removeBookmark";
 import { getBookmarks } from "@/utils/getBookmarks";
+import { ButtonsContainer, InfoContainer } from "./styles/section";
+import { SightImage, TypeIcon } from "./styles/images";
+import { SightDescription, SightName } from "./styles/text";
+import {
+    BookmarkAddButton,
+    BookmarkIcon,
+    BookmarkRemoveButton,
+    RouteButton,
+    RouteIcon,
+} from "./styles/buttons";
 
 interface Props {
     info: Sight;
@@ -52,29 +60,35 @@ const InfoSection = ({ info }: Props) => {
     };
 
     return (
-        <Box sx={{ overflow: "hidden" }}>
-            <img width="100%" height={"300px"} src={info.photo} />
+        <InfoContainer>
+            <SightImage src={info.photo} />
             {icons.map((icon) => (
-                <Icon sx={{ height: "40px", width: "40px" }}>
-                    <img width={"100%"} src={`/places/${icon}.svg`} />
-                </Icon>
+                <TypeIcon src={`/places/${icon}.svg`} />
             ))}
-            <Typography variant="h3">{info.title}</Typography>
-            <Typography variant="h5">
+            <SightName>{info.title}</SightName>
+            <SightDescription>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
                 iusto, reprehenderit commodi libero nostrum voluptatum quas
-                voluptatibus possimus qui odit eos et est pariatur odio
-                consectetur error? Eos, reiciendis delectus?
-            </Typography>
-            <Grid container width={"100%"} justifyContent={"space-between"}>
+                voluptatibus possimus qui odit.
+            </SightDescription>
+            <ButtonsContainer>
                 {isInBookmarks(info) ? (
-                    <Button onClick={removeFromBookmarks}>В закладках</Button>
+                    <BookmarkRemoveButton onClick={removeFromBookmarks}>
+                        <BookmarkIcon />
+                        Сохранено
+                    </BookmarkRemoveButton>
                 ) : (
-                    <Button onClick={saveToBookmarks}>Сохранить</Button>
+                    <BookmarkAddButton onClick={saveToBookmarks}>
+                        <BookmarkIcon />
+                        Сохранить
+                    </BookmarkAddButton>
                 )}
-                <Button onClick={setCoordinatesForRoute}>Маршрут</Button>
-            </Grid>
-        </Box>
+                <RouteButton onClick={setCoordinatesForRoute}>
+                    <RouteIcon />
+                    Маршрут
+                </RouteButton>
+            </ButtonsContainer>
+        </InfoContainer>
     );
 };
 
