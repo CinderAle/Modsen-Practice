@@ -1,9 +1,12 @@
 import {
-    AddRounded,
-    MyLocationRounded,
-    RemoveRounded,
-} from "@mui/icons-material";
-import { Button, Grid } from "@mui/material";
+    LocateButton,
+    LocateIcon,
+    ZoomInButton,
+    ZoomInIcon,
+    ZoomOutButton,
+    ZoomOutIcon,
+} from "./styles/buttons";
+import { ControlsContainer, ZoomControls } from "./styles/container";
 
 interface Props {
     zoomIn: () => void;
@@ -13,26 +16,19 @@ interface Props {
 
 const StyledMapControls = ({ zoomIn, zoomOut, center }: Props) => {
     return (
-        <Grid
-            container
-            position={"absolute"}
-            bottom={18}
-            right={18}
-            zIndex={1}
-            width={"auto"}
-        >
-            <Button sx={{ marginRight: 3, bgcolor: "white" }} onClick={center}>
-                <MyLocationRounded />
-            </Button>
-            <Grid>
-                <Button sx={{ bgcolor: "white" }} onClick={zoomIn}>
-                    <AddRounded />
-                </Button>
-                <Button sx={{ bgcolor: "white" }} onClick={zoomOut}>
-                    <RemoveRounded />
-                </Button>
-            </Grid>
-        </Grid>
+        <ControlsContainer>
+            <LocateButton onClick={center}>
+                <LocateIcon />
+            </LocateButton>
+            <ZoomControls>
+                <ZoomInButton onClick={zoomIn}>
+                    <ZoomInIcon />
+                </ZoomInButton>
+                <ZoomOutButton onClick={zoomOut}>
+                    <ZoomOutIcon />
+                </ZoomOutButton>
+            </ZoomControls>
+        </ControlsContainer>
     );
 };
 

@@ -1,24 +1,12 @@
-import { Grid } from "@mui/material";
 import { ReactNode } from "react";
+import { ControlsContainer } from "./styles/container";
 
 interface Props {
     children: ReactNode;
 }
 
 const Controls = ({ children }: Props) => {
-    return (
-        <Grid
-            container
-            wrap={"nowrap"}
-            width={"auto"}
-            position={"absolute"}
-            left={0}
-            height={"100%"}
-            zIndex={1}
-        >
-            {children}
-        </Grid>
-    );
+    return <ControlsContainer>{children}</ControlsContainer>;
 };
 
 export default Controls;
