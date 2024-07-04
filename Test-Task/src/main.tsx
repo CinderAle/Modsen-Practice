@@ -1,4 +1,5 @@
 import "./index.css";
+import "./styles/fonts.css";
 
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -7,8 +8,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import App from "./App.tsx";
 import { store } from "./store/index.ts";
-
-import "firebase/compat/firestore";
 
 const persisitor = persistStore(store);
 

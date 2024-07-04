@@ -1,10 +1,12 @@
 import { get, ref, set } from "firebase/database";
-import { database } from "./firebaseConfig";
+
 import { constants } from "@/constants/constants";
 import { Sight } from "@/types/sight";
 
+import { database } from "./firebaseConfig";
+
 export const removeBookmark = async (login: string, sight: Sight) => {
-    let bookmarkRef = ref(
+    const bookmarkRef = ref(
         database,
         `${constants.USER_COLLECTION}/${login}/${constants.BOOKMARK_COLLECTION}`,
     );

@@ -1,30 +1,35 @@
-import { useAction } from "@/hooks/useAction";
+import { useNavigate } from "react-router-dom";
 
-import MappieIcon from "./MappieIcon";
-import SidebarControls from "./StyledSidebarControls";
-import StyledSidebarGrid from "./StyledSidebarGrid";
+import LogoSvg from "@/assets/svg/logo.svg";
+import { constants } from "@/constants/constants";
+import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
+
+import SidebarControls from "./SidebarControls";
+import { SidebarContainer } from "./styles/containers";
+import { Logo } from "./styles/logo";
 
 const Sidebar = () => {
     const { showBookmark, showFilter } = useAction();
 
     const isLoggedIn = useTypedSelector((state) => state.user.user.isLoggedIn);
     const { logout } = useAction();
+    const navigate = useNavigate();
 
     const login = () => {
-        if (!isLoggedIn) console.log("login");
-        else logout();
+        if (isLoggedIn) logout();
+        navigate(constants.LOGIN_ROUTE);
     };
 
     return (
-        <StyledSidebarGrid>
-            <MappieIcon />
+        <SidebarContainer>
+            <Logo src={LogoSvg} />
             <SidebarControls
                 showFilters={showFilter}
                 showBookmarks={showBookmark}
                 showLogin={login}
             />
-        </StyledSidebarGrid>
+        </SidebarContainer>
     );
 };
 

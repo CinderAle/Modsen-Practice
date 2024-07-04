@@ -1,8 +1,9 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+
 import { constants } from "@/constants/constants";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import MainPage from "@/pages/MainPage";
 import { publicRoutes } from "@/routes";
-import { Navigate, Route, Routes } from "react-router-dom";
 
 const AppRouter = () => {
     const isLoggedIn = useTypedSelector((state) => state.user.user.isLoggedIn);

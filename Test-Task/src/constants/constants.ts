@@ -13,4 +13,5 @@ export const constants = {
     BOOKMARK_COLLECTION: "bookmark",
     USER_LOGIN_FIELD: "user_login",
     PLACE_ID_FIELD: "place_id",
+    DIGITS_IN_DISTANCE: 1,
 };

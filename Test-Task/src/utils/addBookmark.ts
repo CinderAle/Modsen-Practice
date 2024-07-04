@@ -1,7 +1,9 @@
-import { Sight } from "@/types/sight";
 import { get, push, ref, set } from "firebase/database";
-import { database } from "./firebaseConfig";
+
 import { constants } from "@/constants/constants";
+import { Sight } from "@/types/sight";
+
+import { database } from "./firebaseConfig";
 
 export const addBookmark = async (login: string, sight: Sight) => {
     let bookmarkRef = ref(
@@ -19,7 +21,7 @@ export const addBookmark = async (login: string, sight: Sight) => {
         );
         bookmarks = { bookmarks: sight };
     } else {
-        let bookmarksSet = new Set(
+        const bookmarksSet = new Set(
             Object.values(
                 Object.values(snapshot.val())[0] as object,
             ) as Array<Sight>,

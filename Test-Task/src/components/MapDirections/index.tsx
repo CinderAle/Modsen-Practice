@@ -8,6 +8,8 @@ import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { SectionType } from "@/types/section";
 
 const ROUTES_LIBRARY = "routes";
+const STROKE_COLOR = rgbToHex("rgb(94,123,199)");
+const STROKE_OPACITY = 0.75;
 
 const MapDirections = () => {
     const route = useTypedSelector((state) => state.route.route);
@@ -20,9 +22,6 @@ const MapDirections = () => {
     const [directionsRenderer, setDirectionsRenderer] =
         useState<google.maps.DirectionsRenderer>();
 
-    //For future possible use
-    //const [routes, setRoutes] = useState<google.maps.DirectionsRoute[]>();
-
     useEffect(() => {
         if (!map || !routesLibrary) return;
         setDirectionsSerice(new routesLibrary.DirectionsService());
@@ -31,8 +30,8 @@ const MapDirections = () => {
                 map,
                 suppressMarkers: true,
                 polylineOptions: {
-                    strokeColor: rgbToHex("rgb(94,123,199)"),
-                    strokeOpacity: 0.75,
+                    strokeColor: STROKE_COLOR,
+                    strokeOpacity: STROKE_OPACITY,
                 },
             }),
         );
@@ -57,7 +56,8 @@ const MapDirections = () => {
                 travelMode: google.maps.TravelMode.WALKING,
             })
             .then((response) => {
-                const distance = response.routes[0].legs[0].distance?.value ?? 0;
+                const distance =
+                    response.routes[0].legs[0].distance?.value ?? 0;
                 const time = response.routes[0].legs[0].duration?.value ?? 0;
                 showRouteInfo(distance, time);
                 directionsRenderer.setDirections(response);

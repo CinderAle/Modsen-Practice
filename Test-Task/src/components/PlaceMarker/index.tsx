@@ -1,3 +1,4 @@
+import emptyPhoto from "@/assets/png/empty.png";
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
@@ -23,7 +24,9 @@ const PlaceMarker = ({ place }: Props) => {
                 new Sight(
                     place.place_id,
                     place.name,
-                    place.photos !== undefined ? place.photos[0].getUrl() : "",
+                    place.photos !== undefined
+                        ? place.photos[0].getUrl()
+                        : emptyPhoto,
                     place.types,
                     {
                         lat: place.geometry.location.lat(),

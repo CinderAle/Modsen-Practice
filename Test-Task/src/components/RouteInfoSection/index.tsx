@@ -1,7 +1,14 @@
-import { CancelRounded } from "@mui/icons-material";
-import { Button } from "@mui/material";
-
 import { useAction } from "@/hooks/useAction";
+import { metersToKilometers, secondsToTime } from "@/utils/transformMetrics";
+
+import { CancelRouteButton, CancelRouteIcon } from "./styles/button";
+import {
+    DistanceContainer,
+    RouteDataContainer,
+    RouteInfoContainer,
+    TimeContainer,
+} from "./styles/containers";
+import { ValueHeading, ValueLabel } from "./styles/text";
 
 interface Props {
     distance: number;
@@ -10,20 +17,29 @@ interface Props {
 
 const RouteInfoSection = ({ distance, time }: Props) => {
     const { endRoute, hideSection } = useAction();
-    console.log(distance, time);
-    console.log(1);
     const cancelRoute = () => {
         endRoute();
         hideSection();
     };
 
     return (
-        <div>
-            Time: {time} Distance: {distance}
-            <Button onClick={cancelRoute}>
-                <CancelRounded />
-            </Button>
-        </div>
+        <RouteInfoContainer>
+            <RouteDataContainer>
+                <DistanceContainer>
+                    <ValueHeading>
+                        {metersToKilometers(distance)} km
+                    </ValueHeading>
+                    <ValueLabel>дистанция</ValueLabel>
+                </DistanceContainer>
+                <TimeContainer>
+                    <ValueHeading>{secondsToTime(time)}</ValueHeading>
+                    <ValueLabel>примерное время</ValueLabel>
+                </TimeContainer>
+            </RouteDataContainer>
+            <CancelRouteButton onClick={cancelRoute}>
+                <CancelRouteIcon />
+            </CancelRouteButton>
+        </RouteInfoContainer>
     );
 };
 

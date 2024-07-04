@@ -1,7 +1,9 @@
 import { get, ref } from "firebase/database";
-import { database } from "./firebaseConfig";
-import { constants } from "@/constants/constants";
 import md5 from "md5";
+
+import { constants } from "@/constants/constants";
+
+import { database } from "./firebaseConfig";
 
 export const loginUser = async (login: string, password: string) => {
     const userRef = ref(database, `${constants.USER_COLLECTION}/${login}`);
