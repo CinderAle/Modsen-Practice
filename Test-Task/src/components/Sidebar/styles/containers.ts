@@ -28,3 +28,12 @@ export const SidebarContainer = styled.div`
     background-color: ${STYLES.WHITE_COLOR};
     flex-direction: column;
 `;
+
+export const UserIconContainer = styled.div`
+    width: 60px;
+    overflow: hidden;
+    height: 60px;
+    border-radius: 30px;
+    ${STYLES.DEFAULT_BORDER}
+    cursor: pointer;
+`;

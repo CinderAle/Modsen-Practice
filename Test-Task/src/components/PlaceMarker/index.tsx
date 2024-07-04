@@ -3,6 +3,7 @@ import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { Sight } from "@/types/sight";
 import { SightTypes } from "@/types/sightTypes";
 import getSightTypeFromAllTypes from "@/utils/getSightTypeFromAllTypes";
+import emptyPhoto from "@/assets/png/empty.png";
 
 import StyledPlaceMarker from "./StyledPlaceMarker";
 
@@ -23,7 +24,9 @@ const PlaceMarker = ({ place }: Props) => {
                 new Sight(
                     place.place_id,
                     place.name,
-                    place.photos !== undefined ? place.photos[0].getUrl() : "",
+                    place.photos !== undefined
+                        ? place.photos[0].getUrl()
+                        : emptyPhoto,
                     place.types,
                     {
                         lat: place.geometry.location.lat(),

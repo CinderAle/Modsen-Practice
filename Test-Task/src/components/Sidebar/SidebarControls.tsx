@@ -1,3 +1,4 @@
+import { useTypedSelector } from "@/hooks/useTypedSelector";
 import {
     BookmarkButton,
     BookmarkIcon,
@@ -9,7 +10,10 @@ import {
 import {
     ButtonsContainer,
     SidebarControlsContainer,
+    UserIconContainer,
 } from "./styles/containers";
+import { UserIcon } from "./styles/logo";
+import userIcon from "@/assets/png/user.png";
 
 interface Props {
     showFilters: () => void;
@@ -18,6 +22,7 @@ interface Props {
 }
 
 const SidebarControls = ({ showFilters, showBookmarks, showLogin }: Props) => {
+    const isLoggedIn = useTypedSelector((state) => state.user.user.isLoggedIn);
     return (
         <SidebarControlsContainer>
             <ButtonsContainer>
@@ -28,9 +33,15 @@ const SidebarControls = ({ showFilters, showBookmarks, showLogin }: Props) => {
                     <BookmarkIcon />
                 </BookmarkButton>
             </ButtonsContainer>
-            <LoginButton onClick={showLogin}>
-                <LoginIcon />
-            </LoginButton>
+            {isLoggedIn ? (
+                <UserIconContainer onClick={showLogin}>
+                    <UserIcon src={userIcon} />
+                </UserIconContainer>
+            ) : (
+                <LoginButton onClick={showLogin}>
+                    <LoginIcon />
+                </LoginButton>
+            )}
         </SidebarControlsContainer>
     );
 };
