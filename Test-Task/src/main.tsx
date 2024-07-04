@@ -8,7 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.tsx";
 import { store } from "./store/index.ts";
 
-import "firebase/compat/firestore";
+import "./styles/fonts.css";
 
 const persisitor = persistStore(store);
 

@@ -6,19 +6,18 @@ import { SightTypes } from "@/types/sightTypes";
 
 import SearchRadiusSelector from "../SearchRadiusSelector";
 import SightTypeSelector from "../SightTypeSelector";
-import StyledSubmitButton from "./StyledSubmitButton";
 import { constants } from "@/constants/constants";
+import { SearchIcon, SubmitButton } from "./styles/button";
+import { TypeForm } from "./styles/form";
 
 const FilterSection = () => {
     const filtersArray = useTypedSelector((state) => state.filter.filters);
     const radius = useTypedSelector((state) => state.filter.radius);
-    const s = useTypedSelector((state) => state.filter);
     const filters = new Set(filtersArray);
     const { setFilters, setRadius } = useAction();
     const [radiusState, setRadiusState] = useState(
         radius / constants.METERS_IN_KILOMETER,
     );
-    console.log(s);
 
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
@@ -41,15 +40,22 @@ const FilterSection = () => {
     };
 
     return (
-        <form onSubmit={submitForm}>
-            <SightTypeSelector
-                filters={filters}
-                addFilter={addFilter}
-                removeFilter={removeFilter}
-            />
-            <SearchRadiusSelector value={radiusState} onChange={changeRadius} />
-            <StyledSubmitButton />
-        </form>
+        <TypeForm onSubmit={submitForm}>
+            <div>
+                <SightTypeSelector
+                    filters={filters}
+                    addFilter={addFilter}
+                    removeFilter={removeFilter}
+                />
+                <SearchRadiusSelector
+                    value={radiusState}
+                    onChange={changeRadius}
+                />
+            </div>
+            <SubmitButton type="submit">
+                <SearchIcon />
+            </SubmitButton>
+        </TypeForm>
     );
 };
 

@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 
 import { useAction } from "@/hooks/useAction";
 
-import StyledHideSectionButton from "./StyledHideSectionButton";
-import StyledSectionContainer from "./StyledSectionContainer";
-import StyledSectionContentBox from "./StyledSectionContentBox";
+import HideSectionButton from "./HideSectionButton";
+import SectionContentBox from "./SectionContentBox";
+import { MainSection } from "./styles/container";
 
 interface Props {
     children?: ReactNode;
@@ -12,10 +12,10 @@ interface Props {
 const Section = ({ children }: Props) => {
     const { hideSection } = useAction();
     return (
-        <StyledSectionContainer>
-            <StyledSectionContentBox>{children}</StyledSectionContentBox>
-            <StyledHideSectionButton hideSection={hideSection} />
-        </StyledSectionContainer>
+        <MainSection>
+            <SectionContentBox>{children}</SectionContentBox>
+            <HideSectionButton hideSection={hideSection} />
+        </MainSection>
     );
 };
 

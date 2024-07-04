@@ -1,7 +1,7 @@
 import { SightTypes } from "../../types/sightTypes";
-import StyledSelectorHeader from "./StyledSelectorHeader";
-import StyledTypeSelectorBox from "./StyledTypeSelectorBox";
-import StyledTypeSelectorCheckbox from "./StyledTypeSelectorCheckbox";
+import TypeSelectorCheckbox from "./TypeSelectorCheckbox";
+import { FilterBox } from "./styles/box";
+import { Heading } from "./styles/heading";
 
 interface Props {
     addFilter: (filter: SightTypes) => void;
@@ -11,13 +11,13 @@ interface Props {
 
 const SightTypeSelector = ({ addFilter, removeFilter, filters }: Props) => {
     return (
-        <>
-            <StyledSelectorHeader>Искать</StyledSelectorHeader>
-            <StyledTypeSelectorBox>
+        <div>
+            <Heading>Искать</Heading>
+            <FilterBox>
                 {Object.values(SightTypes).map((e, id) => {
                     return (
                         typeof e !== "string" && (
-                            <StyledTypeSelectorCheckbox
+                            <TypeSelectorCheckbox
                                 key={id}
                                 onSelect={addFilter}
                                 onRemove={removeFilter}
@@ -27,8 +27,8 @@ const SightTypeSelector = ({ addFilter, removeFilter, filters }: Props) => {
                         )
                     );
                 })}
-            </StyledTypeSelectorBox>
-        </>
+            </FilterBox>
+        </div>
     );
 };
 
