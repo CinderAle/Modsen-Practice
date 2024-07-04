@@ -1,7 +1,8 @@
 export const STYLES = {
     BLUE_COLOR: "#5E7BC7",
     WHITE_COLOR: "white",
-    RED_COLOR: "",
+    RED_COLOR: "#C75E5E",
+    GRAY_COLOR: "#808080",
     ICON_FONT_SIZE: 30,
     BORDER_RADIUS: "border-radius: 10px;",
     BORDER_RADIUS_VALUE: "10px",

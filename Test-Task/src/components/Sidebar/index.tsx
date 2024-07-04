@@ -1,11 +1,12 @@
 import { useAction } from "@/hooks/useAction";
 
-import MappieIcon from "./MappieIcon";
-import SidebarControls from "./StyledSidebarControls";
-import StyledSidebarGrid from "./StyledSidebarGrid";
+import SidebarControls from "./SidebarControls";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import { useNavigate } from "react-router-dom";
 import { constants } from "@/constants/constants";
+import LogoSvg from "@/assets/svg/logo.svg";
+import { Logo } from "./styles/logo";
+import { SidebarContainer } from "./styles/containers";
 
 const Sidebar = () => {
     const { showBookmark, showFilter } = useAction();
@@ -20,14 +21,14 @@ const Sidebar = () => {
     };
 
     return (
-        <StyledSidebarGrid>
-            <MappieIcon />
+        <SidebarContainer>
+            <Logo src={LogoSvg} />
             <SidebarControls
                 showFilters={showFilter}
                 showBookmarks={showBookmark}
                 showLogin={login}
             />
-        </StyledSidebarGrid>
+        </SidebarContainer>
     );
 };
 
