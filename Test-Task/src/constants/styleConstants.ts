@@ -3,6 +3,7 @@ export const STYLES = {
     WHITE_COLOR: "white",
     RED_COLOR: "#C75E5E",
     GRAY_COLOR: "#808080",
+    ROUTE_BLUE_COLOR: "#405F7B",
     ICON_FONT_SIZE: 30,
     BORDER_RADIUS: "border-radius: 10px;",
     BORDER_RADIUS_VALUE: "10px",
